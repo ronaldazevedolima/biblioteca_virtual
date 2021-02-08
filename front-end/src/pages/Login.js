@@ -7,6 +7,12 @@ const Login = () => (
   <div>
     <Header />
     <h1>login</h1>
+    <div class="alert alert-warning" role="alert">
+      Para ter acesso a edição favor entrar em contato.
+    </div>
+    <div class="alert alert-dark" role="alert">
+      Para visualizar use e-mail = testuser@testuser.com e password = 1234567
+    </div>
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Endereço de email</label>
@@ -30,7 +36,7 @@ const Login = () => (
           placeholder="Senha"
         />
       </div>
-      <Link to='/home'>
+      <Link to="/about">
         <button type="submit" class="btn btn-primary">
           Enviar
         </button>

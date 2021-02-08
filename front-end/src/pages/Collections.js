@@ -14,7 +14,7 @@ const Collections = () => (
         <h6 class="card-subtitle mb-2 text-muted">Autor</h6>
         <ul>
           <li class="card-text">
-            livros {' '}
+            livros{' '}
             <a href="#" class="card-link">
               detalhe
             </a>
@@ -25,6 +25,9 @@ const Collections = () => (
         </a>
       </div>
     </div>
+    <button type="button" class="btn btn-success">
+      Adicionar
+    </button>
   </div>
 );
 
