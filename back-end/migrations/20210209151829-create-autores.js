@@ -2,22 +2,26 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createEditoras = await queryInterface.createTable('Editoras', {
-      id_categoria: {
+    const createAutor = await queryInterface.createTable('autores', {
+      idAutor: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nome_categoria: {
+      nome_autor: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      nome_completo: {
         allowNull: false,
         type: Sequelize.STRING,
       },
     });
-    return createEditoras;
+    return createAutor;
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Editoras');
+    await queryInterface.dropTable('autores');
   },
 };

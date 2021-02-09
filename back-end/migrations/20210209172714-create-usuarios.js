@@ -2,28 +2,36 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createColecoes = await queryInterface.createTable('Colecoes', {
-      id_colecao: {
+    const createUsuarios = queryInterface.createTable('usuarios', {
+      id_usuario: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nome_colecao: {
+      nome_usuario: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      volumes: {
+      email: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING,
+      },
+      senha: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
+      classificacao: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
     });
-    return createColecoes;
+
+    return createUsuarios;
   },
 
   down: async (queryInterface, Sequelize) => {
-    
-      await queryInterface.dropTable('Colecoes');
-     
-  }
+    await queryInterface.dropTable('usuarios');
+  },
 };
