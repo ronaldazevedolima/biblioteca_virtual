@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const createUsuarios = queryInterface.createTable('usuarios', {

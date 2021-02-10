@@ -2,9 +2,9 @@ const Categorias = (sequelize, DataTypes) => {
   const createCategorias = sequelize.define(
     'categorias',
     {
-      idCategoria: {
-        type: DataTypes.INTEGER,
-      },
+      // idCategoria: {
+      //   type: DataTypes.INTEGER,
+      // },
       nome_categoria: {
         type: DataTypes.STRING,
       },
