@@ -31,8 +31,8 @@ const Livros = (sequelize, DataTypes) => {
   );
 
   createLivros.associate = (models) => {
-    // createLivros.belongsTo(models.colecoes, { as: 'colecoes',  foreignKey: 'id_Colecao'});
-    createLivros.belongsTo(models.autores, { as: 'autores', foreignKey: 'idAutor' });
+    createLivros.belongsTo(models.colecoes, { as: 'colecoes',  foreignKey: 'id_Colecao'});
+    // createLivros.belongsTo(models.autores, { as: 'autores', foreignKey: 'idAutor' });
     // createLivros.belongsTo(models.categorias, { as: 'categorias', foreignKey: 'idCategoria', targetKey: 'idCategoria' });
     // createLivros.belongsTo(models.editoras, { as: 'editoras', foreignKey: 'idEditora', targetKey: 'idEditora' });
   };

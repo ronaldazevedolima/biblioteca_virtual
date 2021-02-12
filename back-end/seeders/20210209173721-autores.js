@@ -37,6 +37,9 @@ module.exports = {
         { nome_autor: 'Ernest Cline', nome_completo: 'Ernest Christy Cline' },
         { nome_autor: 'Ken Follett', nome_completo: 'Kenneth Martin Follett' },
         { nome_autor: 'David Colbert', nome_completo: 'David Colbert' },
+        { nome_autor: 'Clive Staples Lewis', nome_completo: 'C. S. Lewis' },
+        { nome_autor: 'Erik Durschmied', nome_completo: 'Erik Durschmied' },
+        { nome_autor: 'Terence David John Pratchett', nome_completo: 'Terry Pratchett' },
       ],
       {}
     );

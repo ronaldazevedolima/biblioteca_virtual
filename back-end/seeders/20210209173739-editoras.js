@@ -19,6 +19,9 @@ module.exports = {
         { nome_editora: 'Aleph' },
         { nome_editora: 'DarkSide' },
         { nome_editora: 'Imago' },
+        { nome_editora: 'Francis' },
+        { nome_editora: 'Sextante' },
+        { nome_editora: 'Ediouro' },
       ],
       {}
     );

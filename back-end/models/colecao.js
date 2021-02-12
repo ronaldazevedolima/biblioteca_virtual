@@ -1,10 +1,7 @@
 const Colecao = (sequelize, DataTypes) => {
-  const createColecoes = sequelize.define(
+  const createColecao = sequelize.define(
     'colecoes',
     {
-      // idColecao: {
-      //   type: DataTypes.INTEGER,
-      // },
       nome_colecao: {
         type: DataTypes.STRING,
       },
@@ -12,14 +9,14 @@ const Colecao = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
     },
-    { timestamps: false },
+    { timestamps: false }
   );
 
-  createColecoes.associate = (models) => {
-    createColecoes.hasMany(models.livros, { as: 'livros', foreignKey: 'id_Colecao' });
+  createColecao.associate = (models) => {
+    createColecao.hasMany(models.livros, { as: 'livros', foreignKey: 'id_Colecao' });
   };
 
-  return createColecoes;
+  return createColecao;
 };
 
 module.exports = Colecao;

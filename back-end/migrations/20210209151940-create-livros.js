@@ -10,21 +10,20 @@ module.exports = {
       id_Colecao: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: { model: 'colecoes', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'colecoes', key: 'idColecao' },
       },
       nomeLivro: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique: true,
       },
       idAutor: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: { model: 'autores', key: 'idAutor' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'autores', key: 'idAutor' },
       },
       tenho: {
         allowNull: false,

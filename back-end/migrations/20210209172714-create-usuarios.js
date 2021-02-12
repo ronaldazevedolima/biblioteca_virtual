@@ -18,7 +18,7 @@ module.exports = {
       },
       senha: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       classificacao: {
         allowNull: false,
