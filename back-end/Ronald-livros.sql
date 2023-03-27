@@ -2,44 +2,138 @@ CREATE DATABASE IF NOT EXISTS ronald_livros;
 USE ronald_livros;
 
 CREATE TABLE IF NOT EXISTS AUTOR (
-idAutor SMALLINT AUTO_INCREMENT PRIMARY KEY,
+id_autor SMALLINT AUTO_INCREMENT PRIMARY KEY,
 nome_autor VARCHAR(100) NOT NULL,
 nome_completo VARCHAR(100) NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS CATEGORIA (
-idCategoria SMALLINT AUTO_INCREMENT PRIMARY KEY,
+id_categoria SMALLINT AUTO_INCREMENT PRIMARY KEY,
 nome_categoria VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS EDITORA (
-idEditora SMALLINT AUTO_INCREMENT PRIMARY KEY,
+id_editora SMALLINT AUTO_INCREMENT PRIMARY KEY,
 nome_editora VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS COLECAO (
-idColecao SMALLINT AUTO_INCREMENT PRIMARY KEY,
+id_colecao SMALLINT AUTO_INCREMENT PRIMARY KEY,
 nome_colecao VARCHAR(70) NOT NULL,
 volumes SMALLINT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS LIVROS (
 id_livro SMALLINT AUTO_INCREMENT PRIMARY KEY,
-idColecao VARCHAR(50),
-nomeLivro VARCHAR(100) NOT NULL UNIQUE,
-idAutor SMALLINT NOT NULL,
+id_colecao SMALLINT,
+nome_livro VARCHAR(100) NOT NULL,
+id_autor SMALLINT NOT NULL,
 tenho BOOL NOT NULL,
 lido BOOL NOT NULL,
 nota SMALLINT,
-idCategoria SMALLINT NOT NULL,
-idEditora SMALLINT NOT NULL,
-FOREIGN KEY (idAutor) REFERENCES AUTOR(idAutor),
-FOREIGN KEY (idEditora) REFERENCES EDITORA(idEditora),
-FOREIGN KEY (idColecao) REFERENCES COLECAO(idColecao),
-FOREIGN KEY (idCategoria) REFERENCES CATEGORIA(idCategoria)
+id_categoria SMALLINT NOT NULL,
+id_editora SMALLINT NOT NULL,
+FOREIGN KEY (id_autor) REFERENCES AUTOR(id_autor),
+FOREIGN KEY (id_editora) REFERENCES EDITORA(id_editora),
+FOREIGN KEY (id_colecao) REFERENCES COLECAO(id_colecao),
+FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
 );
 
-INSERT INTO LIVROS(idColecao, nomeLivro, idAutor, tenho, lido, nota, idCategoria, idEditora)
+
+INSERT INTO AUTOR (nome_autor, nome_completo)
+VALUES
+('J. R. R. Tolkien', 'John Ronald Reuel Tolkien'),
+('Bernard Cornwell', 'Bernard Cornwell'),
+('Christian Jacq', 'Christian Jacq'),
+('Conn Iggulden', 'Conn Iggulden'),
+('George R. R. Martin', 'George Raymond Richard Martin'),
+('J. K. Rowling', 'Joanne Rowling'),
+('Patrick Rothfuss', 'Patrick James Rothfuss'),
+('Christopher Paolini', 'Christopher Paolini'),
+('Oliver Bowden', 'Anton Gill'),
+('Andrzej Sapkowski', 'Andrzej Sapkowski'),
+('S. L. Farrell', 'Stephen Leigh'),
+('Raymond E. Feist', 'Raymond Elias Feist'),
+('Suzanne Collins', 'Suzanne Marie Collins'),
+('Marion Zimmer Bradley', 'Marion Eleanor Zimmer Bradley'),
+('Valerio Massimo Manfredi', 'Valerio Massimo Manfredi'),
+('Margaret Weis', 'Margaret Edith Weis'),
+('Terry Brooks', 'Terence Dean Brooks'),
+('Frank Herbert', 'Frank Patrick Herbert'),
+('Raphael Draccon', 'Rafael Albuquerque Pereira'),
+('Colleen Houck', 'Colleen Houck'),
+('T. H. White', 'Terence Hanbury White'),
+('Orlando Paes Filho', 'Orlando Paes Filho'),
+('Anthony Ryan', 'Anthony Ryan'),
+('Scott Lynch', 'Scott Lynch'),
+('David Malouf', 'David George Joseph Malouf '),
+('David Gibbins', 'David Gibbins'),
+('Eduardo Spohr', 'Eduardo Spohr'),
+('George Lucas', 'George Walton Lucas Jr.'),
+('Robert E. Vardeman', 'Robert Edward Vardeman'),
+('Terry Pratchett', 'Terence David John Pratchett'),
+('Nate Kenyon', 'Nate Kenyon'),
+('Ernest Cline', 'Ernest Christy Cline'),
+('Ken Follett', 'Kenneth Martin Follett'),
+('David Colbert', 'David Colbert');
+
+
+INSERT INTO EDITORA (nome_editora)
+VALUES
+('Martins Fontes'),
+('Leya'),
+('Record'),
+('Galera'),
+('Bertrand Brasil'),
+('Arqueiro'),
+('Saída de Emergência'),
+('Rocco'),
+('Publicações Europa-América'),
+('Conrad'),
+('Planeta'),
+('Verus'),
+('Wizards'),
+('Aleph'),
+('DarkSide'),
+('Imago');
+
+
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES
+('Literatura fantástica'),
+('Ficção histórica'),
+('Ficção científica');
+
+INSERT INTO COLECAO (nome_colecao, volumes)
+VALUES
+('O Senhor dos Anéis', 3),
+('O Conquistador', 5),
+('O Imperador', 5),
+('As Crônicas de Artur', 3),
+('A Busca do Graal', 4),
+('As Aventuras de Sharpe', 21),
+('As Crônicas Saxônicas', 11),
+('Jogos Vorazes', 3),
+('Harry Potter', 8),
+('Assassin`s Creed', 11),
+('O Trono do Sol - O Ciclo Nessântico', 3),
+('Ramsés', 5),
+('Pedra da Luz', 4),
+('Ciclo da Herança', 5),
+('The Witcher', 7),
+('Duna', 6),
+('As Brumas de Avalon', 4),
+('A Saga do Império', 3),
+('A Saga do Mago', 4),
+('Saga do Assassino', 3),
+('Crônicas de Dragonlance', 3),
+('Dragões de Éter', 3),
+('Crônicas de Gelo e Fogo', 5),
+('A Crônica do Matador do Rei', 3),
+('A Saga do Tigre', 6),
+('Alexandros', 3);
+
+INSERT INTO LIVROS(id_colecao, nome_livro, id_autor, tenho, lido, nota, id_categoria, id_editora)
 VALUES
 (1, 'A Sociedade do Anel', 1, 1, 1, 10, 1, 1),
 (1, 'As Duas Torres', 1, 1, 1, 10, 1, 1),
@@ -143,103 +237,4 @@ VALUES
 (15,'Batismo de Fogo', 10, 1, 1, 10, 1, 1),
 (15,'A Torre da Andorinha', 10, 1, 1, 10, 1, 1),
 (15,'A Senhora do Lago', 10, 1, 1, 10, 1, 1),
-(15,'Tempo de Tempestade', 10, 1, 1, 10, 1, 1),
-
-();
-
-
-INSERT INTO AUTOR (nome_autor, nome_completo)
-VALUES
-('J. R. R. Tolkien', 'John Ronald Reuel Tolkien'),
-('Bernard Cornwell', 'Bernard Cornwell'),
-('Christian Jacq', 'Christian Jacq'),
-('Conn Iggulden', 'Conn Iggulden'),
-('George R. R. Martin', 'George Raymond Richard Martin'),
-('J. K. Rowling', 'Joanne Rowling'),
-('Patrick Rothfuss', 'Patrick James Rothfuss'),
-('Christopher Paolini', 'Christopher Paolini'),
-('Oliver Bowden', 'Anton Gill'),
-('Andrzej Sapkowski', 'Andrzej Sapkowski'),
-('S. L. Farrell', 'Stephen Leigh'),
-('Raymond E. Feist', 'Raymond Elias Feist'),
-('Suzanne Collins', 'Suzanne Marie Collins'),
-('Marion Zimmer Bradley', 'Marion Eleanor Zimmer Bradley'),
-('Valerio Massimo Manfredi', 'Valerio Massimo Manfredi'),
-('Margaret Weis', 'Margaret Edith Weis'),
-('Terry Brooks', 'Terence Dean Brooks'),
-('Frank Herbert', 'Frank Patrick Herbert'),
-('Raphael Draccon', 'Rafael Albuquerque Pereira'),
-('Colleen Houck', 'Colleen Houck'),
-('T. H. White', 'Terence Hanbury White'),
-('Orlando Paes Filho', 'Orlando Paes Filho'),
-('Anthony Ryan', 'Anthony Ryan'),
-('Scott Lynch', 'Scott Lynch'),
-('David Malouf', 'David George Joseph Malouf '),
-('David Gibbins', 'David Gibbins'),
-('Eduardo Spohr', 'Eduardo Spohr'),
-('George Lucas', 'George Walton Lucas Jr.'),
-('Robert E. Vardeman', 'Robert Edward Vardeman'),
-('Terry Pratchett', 'Terence David John Pratchett'),
-('Nate Kenyon', 'Nate Kenyon'),
-('Ernest Cline', 'Ernest Christy Cline'),
-('Ken Follett', 'Kenneth Martin Follett'),
-('David Colbert', 'David Colbert');
-
-
-INSERT INTO EDITORA (nome_editora)
-VALUES
-('Martins Fontes'),
-('Leya'),
-('Record'),
-('Galera'),
-('Bertrand Brasil'),
-('Arqueiro'),
-('Saída de Emergência'),
-('Rocco'),
-('Publicações Europa-América'),
-('Conrad'),
-('Planeta'),
-('Verus'),
-('Wizards'),
-('Aleph'),
-('DarkSide'),
-('Imago');
-
-
-INSERT INTO CATEGORIA (nome_categoria)
-VALUES
-('Literatura fantástica'),
-('Ficção histórica'),
-('Ficção científica');
-
-INSERT INTO COLECAO (nome_colecao, volumes)
-VALUES
-('O Senhor dos Anéis', 3),
-('O Conquistador', 5),
-('O Imperador', 5),
-('As Crônicas de Artur', 3),
-('A Busca do Graal', 4),
-('As Aventuras de Sharpe', 21),
-('As Crônicas Saxônicas', 11),
-('Jogos Vorazes', 3),
-('Harry Potter', 8),
-('Assassin`s Creed', 11),
-('O Trono do Sol - O Ciclo Nessântico', 3),
-('Ramsés', 5),
-('Pedra da Luz', 4),
-('Ciclo da Herança', 5),
-('The Witcher', 7),
-('Duna', 6),
-('As Brumas de Avalon', 4),
-('A Saga do Império', 3),
-('A Saga do Mago', 4),
-('Saga do Assassino', 3),
-('Crônicas de Dragonlance', 3),
-('Dragões de Éter', 3),
-('Crônicas de Gelo e Fogo', 5),
-('A Crônica do Matador do Rei', 3),
-('A Saga do Tigre', 6),
-('Alexandros', 3);
-
-
-
+(15,'Tempo de Tempestade', 10, 1, 1, 10, 1, 1);
