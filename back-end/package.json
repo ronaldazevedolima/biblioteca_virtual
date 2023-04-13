@@ -2,14 +2,14 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "npm run drop && npm run prestart && npm run seed && npm run debug",
-    "debug": "nodemon index.js",
+    "debug": "nodemon src/server.js",
     "drop": "npx sequelize-cli db:drop $",
     "seed": "npx sequelize-cli db:seed:all $",
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",
-    "start": "node index.js",
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
