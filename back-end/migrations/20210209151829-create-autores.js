@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createAutor = await queryInterface.createTable('autores', {
-      idAutor: {
+    const criaAutor = await queryInterface.createTable('autores', {
+      id_autor: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
     });
-    return createAutor;
+    return criaAutor;
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createLivros = await queryInterface.createTable('livros', {
+    const criaLivros = await queryInterface.createTable('livros', {
       id_livro: {
         allowNull: false,
         autoIncrement: true,
@@ -10,18 +10,18 @@ module.exports = {
       id_Colecao: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'colecoes', key: 'id' },
+        references: { model: 'colecoes', key: 'id_colecao' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      nomeLivro: {
+      nome_livro: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      idAutor: {
+      id_autor: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'autores', key: 'idAutor' },
+        references: { model: 'autores', key: 'id_autor' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
@@ -36,22 +36,22 @@ module.exports = {
       nota: {
         type: Sequelize.INTEGER,
       },
-      idCategoria: {
+      id_categoria: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'categorias', key: 'idCategoria' },
+        references: { model: 'categorias', key: 'id_categoria' },
       },
-      idEditora: {
+      id_editora: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'editoras', key: 'idEditora' },
+        references: { model: 'editoras', key: 'id_editora' },
       },
     });
-    return createLivros;
+    return criaLivros;
   },
 
   down: async (queryInterface, Sequelize) => {

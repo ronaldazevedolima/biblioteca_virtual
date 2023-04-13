@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createEditoras = await queryInterface.createTable('editoras', {
-      idEditora: {
+    const criaEditoras = await queryInterface.createTable('editoras', {
+      id_editora: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
     });
-    return createEditoras;
+    return criaEditoras;
   },
 
   down: async (queryInterface, Sequelize) => {

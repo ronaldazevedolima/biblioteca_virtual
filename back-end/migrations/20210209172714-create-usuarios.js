@@ -1,4 +1,11 @@
 module.exports = {
+
+  /**
+   * @param {import('sequelize').QueryInterface} queryInterface 
+   * @param {import('sequelize').Sequelize} Sequelize 
+   * @returns {Promise<void>}
+   */
+
   up: async (queryInterface, Sequelize) => {
     const createUsuarios = queryInterface.createTable('usuarios', {
       id_usuario: {
@@ -24,7 +31,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-    });
+    }, { timestamps: false });
 
     return createUsuarios;
   },

@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const createColecoes = await queryInterface.createTable('colecoes', {
-      id: {
+    const criaColecoes = await queryInterface.createTable('colecoes', {
+      id_colecao: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
     });
-    return createColecoes;
+    return criaColecoes;
   },
 
   down: async (queryInterface, Sequelize) => {
