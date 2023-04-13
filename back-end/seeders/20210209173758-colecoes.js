@@ -42,11 +42,10 @@ module.exports = {
         { nome_colecao: 'As Crônicas de Nárnia', volumes: 7 },
         { nome_colecao: 'Discoworld', volumes: 41 },
       ],
-      {}
+      {
+        timestamps: false,
+      }
     );
-    {
-      timestamps: false;
-    }
   },
 
   down: async (queryInterface, Sequelize) => {

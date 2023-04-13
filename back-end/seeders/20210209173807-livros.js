@@ -1,6 +1,5 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-   try {
     await queryInterface.bulkInsert(
       'livros',
       [
@@ -1755,15 +1754,10 @@ module.exports = {
           idEditora: 19,
         },
       ],
-      {}
+      {
+        timestamps: false,
+      }
     );
-    {
-      timestamps: false;
-    }
-   } catch (error) {
-     console.log('errorr message', error.message)
-     console.log('erro', error)
-   }
   },
 
   down: async (queryInterface, Sequelize) => {

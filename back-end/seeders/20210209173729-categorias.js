@@ -7,11 +7,10 @@ module.exports = {
         { nome_categoria: 'Ficção histórica' },
         { nome_categoria: 'Ficção científica' },
       ],
-      {}
-    );
-    {
-      timestamps: false;
-    }
+      {
+        timestamps: false,
+      }
+    );    
   },
 
   down: async (queryInterface, Sequelize) => {

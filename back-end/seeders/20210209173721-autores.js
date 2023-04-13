@@ -41,11 +41,10 @@ module.exports = {
         { nome_autor: 'Erik Durschmied', nome_completo: 'Erik Durschmied' },
         { nome_autor: 'Terence David John Pratchett', nome_completo: 'Terry Pratchett' },
       ],
-      {}
+      {
+        timestamps: false,
+      }     
     );
-    {
-      timestamps: false;
-    }
   },
 
   down: async (queryInterface, Sequelize) => {

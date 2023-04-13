@@ -23,11 +23,10 @@ module.exports = {
         { nome_editora: 'Sextante' },
         { nome_editora: 'Ediouro' },
       ],
-      {}
+      {
+        timestamps: false,
+      }
     );
-    {
-      timestamps: false;
-    }
   },
 
   down: async (queryInterface, Sequelize) => {

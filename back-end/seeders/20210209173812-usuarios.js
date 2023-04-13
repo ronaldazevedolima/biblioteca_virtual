@@ -16,11 +16,10 @@ module.exports = {
           classificacao: 'cliente',
         },
       ],
-      {}
+      {
+        timestamps: false,
+      }
     );
-    {
-      timestamps: false;
-    }
   },
 
   down: async (queryInterface, Sequelize) => {
