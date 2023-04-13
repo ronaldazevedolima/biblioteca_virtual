@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:8.0.23
+    restart: on-failure
+    ports:
+      - 3306:3306
+    
+    environment:
+      - MYSQL_ROOT_PASSWORD=181216
+      - MYSQL_PASSWORD=181216
+      - MYSQL_USER=Ronald
+
+    volumes:
+      - database:/var/lib/mysql
+volumes:
+  database:
