@@ -1,6 +1,14 @@
 CREATE DATABASE IF NOT EXISTS ronald_livros;
 USE ronald_livros;
 
+CREATE TABLE IF NOT EXISTS USURIO (
+    id_usuario SMALLINT, AUTO_INCREMENT, PRIMARY KEY,
+    nome VARCHAR(255), NOT NULL,
+    email VARCHAR(255), NOT NULL,
+    senha VARCHAR(10), NOT NULL,
+    classificacao VARCHAR(40), NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS AUTOR (
 id_autor SMALLINT AUTO_INCREMENT PRIMARY KEY,
 nome_autor VARCHAR(100) NOT NULL,
@@ -38,6 +46,11 @@ FOREIGN KEY (id_editora) REFERENCES EDITORA(id_editora),
 FOREIGN KEY (id_colecao) REFERENCES COLECAO(id_colecao),
 FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
 );
+
+INSERT INTO USURIO (nome, email, senha, classificacao)
+VALUES
+('Ronald', 'ronald@ronald.com', '181216', 'admin'),
+('Lorena', 'lorena@lorena.com', '181216', 'cliente')
 
 
 INSERT INTO AUTOR (nome_autor, nome_completo)

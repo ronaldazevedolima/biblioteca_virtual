@@ -4,15 +4,15 @@ module.exports = {
       'usuarios',
       [
         {
-          nome_usuario: 'Ronald Lima',
-          email: 'ronaldazevedolima@hotmail.com',
-          senha: '@biblioteca',
-          classificacao: 'administrador',
+          nome: 'Ronald Lima',
+          email: 'ronald@ronald.com',
+          senha: '181216',
+          classificacao: 'admin',
         },
         {
-          nome_usuario: 'Usuario de teste',
-          email: 'testuser@testuser.com',
-          senha: '1234567',
+          nome: 'Lorena',
+          email: 'lorena@lorena.com',
+          senha: '181216',
           classificacao: 'cliente',
         },
       ],
