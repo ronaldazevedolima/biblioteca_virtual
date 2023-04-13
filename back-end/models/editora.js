@@ -1,21 +1,26 @@
 const Editoras = (sequelize, DataTypes) => {
-  const createEditoras = sequelize.define(
-    'editoras',
+  const criaEditoras = sequelize.define(
+    'Editoras',
     {
       idEditora: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
       },
-      nome_editora: {
+      nomeEditora: {
         type: DataTypes.STRING,
       },
     },
-    { timestamps: false }
+    { 
+      timestamps: false,
+      underscored: true,
+     }
   );
 
-  createEditoras.associate = (models) => {
-    createEditoras.hasMany(models.livros, { as: 'livros', foreignKey: 'idEditora' });
+  criaEditoras.associate = ({ Livros }) => {
+    criaEditoras.hasMany(Livros, { as: 'livros', foreignKey: 'idEditora' });
   };
-  return createEditoras;
+  return criaEditoras;
 };
 
 module.exports = Editoras;

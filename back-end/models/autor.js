@@ -1,24 +1,29 @@
 const Autores = (sequelize, DataTypes) => {
-  const createAutores = sequelize.define(
-    'autores',
+  const criaAutores = sequelize.define(
+    'Autores',
     {
       idAutor: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
       },
-      nome_autor: {
-        type: DataTypes.INTEGER,
+      nomeAutor: {
+        type: DataTypes.STRING,
       },
-      nome_completo: {
-        type: DataTypes.INTEGER,
+      nomeCompleto: {
+        type: DataTypes.STRING,
       },
     },
-    { timestamps: false }
+    { 
+      timestamps: false,
+      underscored: true
+   }
   );
 
-  createAutores.associate = (models) => {
-    createAutores.hasMany(models.livros, { as: 'livros', foreignKey: 'idAutor' });
+  criaAutores.associate = ({ Livros }) => {
+    criaAutores.hasMany(Livros, { as: 'livros', foreignKey: 'idAutor' });
   };
-  return createAutores;
+  return criaAutores;
 };
 
 module.exports = Autores;
