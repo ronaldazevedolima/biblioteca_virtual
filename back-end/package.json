@@ -4,11 +4,12 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "npm run drop && npm run prestart && npm run seed && npm run debug",
     "debug": "nodemon src/server.js",
     "drop": "npx sequelize-cli db:drop $",
+    "create": "npx sequelize db:create $",
+    "migrate": "npx sequelize-cli db:migrate $",
     "seed": "npx sequelize-cli db:seed:all $",
-    "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",
+    "restart:db": "npm run drop && npm run create && npm run migrate && npm run seed",
     "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
