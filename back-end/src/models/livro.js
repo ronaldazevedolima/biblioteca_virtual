@@ -1,6 +1,6 @@
 const Livros = (sequelize, DataTypes) => {
   const criaLivros = sequelize.define(
-    'livros',
+    'Livros',
     {
       idLivro: {
         type: DataTypes.INTEGER,
