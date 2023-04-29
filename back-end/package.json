@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "debug": "nodemon src/server.js",
+    "dev": "nodemon src/server.js",
     "drop": "npx sequelize-cli db:drop $",
     "create": "npx sequelize db:create $",
     "migrate": "npx sequelize-cli db:migrate $",
@@ -18,19 +18,13 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "@mysql/xdevapi": "^8.0.20",
-    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-rescue": "^1.1.26",
-    "multer": "^1.4.2",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "eslint": "^7.7.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.2.0"
   }
