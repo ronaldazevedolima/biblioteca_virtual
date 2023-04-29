@@ -7,7 +7,7 @@ const Usuarios = (sequelize, DataTypes) => {
           primaryKey: true,
           autoIncrement: true,
         },
-        nomeUsuario: {
+        nome: {
           type: DataTypes.STRING,
         },
         email: {

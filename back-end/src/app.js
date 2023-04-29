@@ -16,11 +16,11 @@ app.get('/', (_,res) => {
     res.json({ message: 'Biblioteca virtual no ar!'});
 });
 
-app.use('/autor', autorRouter);
-app.use('/categoria', categoriaRouter);
-app.use('/colecao', colecaoRouter);
-app.use('/editora', editoraRouter);
+app.use('/autores', autorRouter);
+app.use('/categorias', categoriaRouter);
+app.use('/colecoes', colecaoRouter);
+app.use('/editoras', editoraRouter);
 app.use('/livros', livrosRouter);
-app.use('/usuario', usuarioRouter);
+app.use('/usuarios', usuarioRouter);
 
 module.exports = app;

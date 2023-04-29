@@ -1,23 +1,20 @@
 const { Router } = require('express');
 
+const userController = require('../controllers/usuarioController');
+
 
 const usuarioRouter = Router();
 
-usuarioRouter.get('/', (req, res) => {
-    res.json({ message: 'usuario'});
-});
+usuarioRouter.get('/', userController.tdsUsrs);
 
-usuarioRouter.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `usuario por id: ${id}`});
-});
+usuarioRouter.get('/:id', userController.usrId);
 
-usuarioRouter.post('/', (req, res) => {});
+usuarioRouter.post('/', userController.criaUsr);
 
-usuarioRouter.put('/:id', (req, res) => {});
+usuarioRouter.put('/:id', userController.atlizUsuario);
 
-usuarioRouter.patch('/:id', (req, res) => {});
+usuarioRouter.patch('/:id', userController.atlzClassficacao);
 
-usuarioRouter.delete('/:id', (req, res) => {});
+usuarioRouter.delete('/:id', userController.delUsr);
 
 module.exports = usuarioRouter;
