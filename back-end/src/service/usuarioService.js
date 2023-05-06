@@ -44,7 +44,12 @@ const atlizUsuario = async (id, obj) => {
 };
 
 const criaUsr = async (obj) => {
-    const infoUsr = {...obj, classificacao: 'cliente'}
+    const { email } = obj;
+    const infoUsr = {...obj, classificacao: 'cliente'};
+    const usr = await db.Usuarios.findAll({ where: { email } });
+    if (usr.length !== 0) {
+        return { status: 409, resposta: { mensagem: 'Usuario já existente no banco de dados.'}}
+    }
     const infoUsrCriado = await db.Usuarios.create(infoUsr);
     const { senha, ...usuarioCriado} = infoUsrCriado.dataValues;
     return { status: 201, resposta: usuarioCriado }
