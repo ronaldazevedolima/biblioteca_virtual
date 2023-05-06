@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const userController = require('../controllers/usuarioController');
-const { validaLogin } = require('../middleware/validaLogin');
+const { validaUsrInfo, validaClassificacao } = require('../middleware/validaUsr');
 
 
 const usuarioRouter = Router();
@@ -10,11 +10,11 @@ usuarioRouter.get('/', userController.tdsUsrs);
 
 usuarioRouter.get('/:id', userController.usrId);
 
-usuarioRouter.post('/',validaLogin, userController.criaUsr);
+usuarioRouter.post('/',validaUsrInfo , userController.criaUsr);
 
-usuarioRouter.put('/:id', userController.atlizUsuario);
+usuarioRouter.put('/:id',validaUsrInfo, userController.atlizUsuario);
 
-usuarioRouter.patch('/:id', userController.atlzClassficacao);
+usuarioRouter.patch('/:id',validaClassificacao, userController.atlzClassficacao);
 
 usuarioRouter.delete('/:id', userController.delUsr);
 

@@ -1,15 +1,21 @@
 const joi = require('joi');
 
 const validaString = joi.string().min(4).required();
-const validaSenha = joi.string()
-.required()
-.pattern(new RegExp('^[a-zA-Z0-9]{6,10}$'))
+const validaRegex = (regex) => {
+    return joi.string()
+    .required()
+    .pattern(new RegExp(regex));
+} 
 const validaEmail = joi.string().email().required();
+
+const senhaRegex = '^[a-zA-Z0-9]{6,10}$'
+const classificacaoRegex = /^(admin|cliente)$/i
+
 
 const esquemaLogin = joi.object({
     nome: validaString,
     email: validaEmail,
-    senha: validaSenha,
+    senha: validaRegex(senhaRegex),
 }).options({
     messages: {
         'any.required': 'O campo {{#key}} é obrigatório.',
@@ -19,6 +25,16 @@ const esquemaLogin = joi.object({
     }
 });
 
+const esquemaClassificacao = joi.object({
+    classificacao: validaRegex(classificacaoRegex),
+}).options({
+    messages: {
+        'any.required': 'O campo {{#key}} é obrigatório.',
+        'string.pattern.base': 'O campo {{#key}} deve ser admin ou cliente.'
+    }
+})
+
 module.exports = {
     esquemaLogin,
+    esquemaClassificacao,
 };
