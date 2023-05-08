@@ -1,23 +1,18 @@
 const { Router } = require('express');
 
+const { tdsEditoras, criaEditora, editoraPorId, atlzEditora, delEditora } = require('../controllers/editoraController');
+
 
 const editoraRouter = Router();
 
-editoraRouter.get('/', (req, res) => {
-  res.json({ message: 'editora'});
-});
+editoraRouter.get('/', tdsEditoras);
 
-editoraRouter.get('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `editora por id: ${id}`});
-});
+editoraRouter.get('/:id', editoraPorId);
 
-editoraRouter.post('/', (req, res) => {});
+editoraRouter.post('/', criaEditora);
 
-editoraRouter.put('/:id', (req, res) => {});
+editoraRouter.put('/:id', atlzEditora);
 
-editoraRouter.patch('/:id', (req, res) => {});
-
-editoraRouter.delete('/:id', (req, res) => {});
+editoraRouter.delete('/:id', delEditora);
 
 module.exports = editoraRouter;
