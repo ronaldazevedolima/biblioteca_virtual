@@ -6,10 +6,10 @@ const editoraRouter = require('./editoraRouter');
 const livrosRouter = require('./livrosRouter');
 
 module.exports = {
-    autorRouter,
-    usuarioRouter,
-    categoriaRouter,
-    colecaoRouter,
-    editoraRouter,
-    livrosRouter,
+  autorRouter,
+  usuarioRouter,
+  categoriaRouter,
+  colecaoRouter,
+  editoraRouter,
+  livrosRouter,
 };
