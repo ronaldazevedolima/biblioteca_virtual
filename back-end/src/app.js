@@ -17,10 +17,15 @@ app.get('/', (_,res) => {
 });
 
 app.use('/autores', autorRouter);
+
 app.use('/categorias', categoriaRouter);
+
 app.use('/colecoes', colecaoRouter);
+
 app.use('/editoras', editoraRouter);
+
 app.use('/livros', livrosRouter);
+
 app.use('/usuarios', usuarioRouter);
 
 module.exports = app;
