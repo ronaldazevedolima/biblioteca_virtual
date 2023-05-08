@@ -1,19 +1,19 @@
 const express = require('express');
 
 const {
-    autorRouter,
-    categoriaRouter,
-    colecaoRouter,
-    editoraRouter,
-    livrosRouter,
-    usuarioRouter
+  autorRouter,
+  categoriaRouter,
+  colecaoRouter,
+  editoraRouter,
+  livrosRouter,
+  usuarioRouter
 } = require('./routes');
 
 const app = express();
 app.use(express.json());
 
 app.get('/', (_,res) => {
-    res.json({ message: 'Biblioteca virtual no ar!'});
+  res.json({ message: 'Biblioteca virtual no ar!'});
 });
 
 app.use('/autores', autorRouter);
