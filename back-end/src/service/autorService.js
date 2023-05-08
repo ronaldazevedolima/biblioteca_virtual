@@ -15,8 +15,8 @@ const autorId = async (id) => {
 };
 
 const atlizAutor = async (id, obj) => {
-    const autor = await db.Autores.findByPk(id);
-    if (!autor) {
+    const autorValido = await db.Autores.findByPk(id);
+    if (!autorValido) {
         return { status: 404, resposta: { mensagem: 'Autor não encontrado.' } };
     }
     const [atualizado] = await db.Autores.update({ ...obj }, {
@@ -44,11 +44,11 @@ const criaAutor = async (obj) => {
 };
 
 const delAutor = async (id) => {
-    const usuario = await db.Autores.findByPk(id);
-    if (!usuario) {
+    const autorValido = await db.Autores.findByPk(id);
+    if (!autorValido) {
         return { status: 404, resposta: { mensagem: 'Autor não encontrado.' } };
     }
-    await db.Autores.destroy({ where: { idUsuario: id } });
+    await db.Autores.destroy({ where: { idAutor: id } });
     return { status: 200, resposta: { mensagem: 'Autor deletado com sucesso.' } }
 };
 
