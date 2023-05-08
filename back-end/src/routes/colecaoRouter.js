@@ -1,23 +1,20 @@
 const { Router } = require('express');
 
+const { tdsColecoes, colecaoId, criaColecao, atlizColecao, delColecao } = require('../controllers/colecaoController');
+
 
 const colecaoRouter = Router();
 
-colecaoRouter.get('/', (req, res) => {
-    res.json({ message: 'colecao'});
-});
+colecaoRouter.get('/', tdsColecoes);
 
-colecaoRouter.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `colecao por id: ${id}`});
-});
+colecaoRouter.get('/:id', colecaoId);
 
-colecaoRouter.post('/', (req, res) => {});
+colecaoRouter.post('/', criaColecao);
 
-colecaoRouter.put('/:id', (req, res) => {});
+colecaoRouter.put('/:id', atlizColecao);
 
-colecaoRouter.patch('/:id', (req, res) => {});
+colecaoRouter.patch('/:id', delColecao);
 
-colecaoRouter.delete('/:id', (req, res) => {});
+colecaoRouter.delete('/:id', );
 
 module.exports = colecaoRouter;
