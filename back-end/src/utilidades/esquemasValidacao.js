@@ -32,7 +32,7 @@ const esquemaClassificacao = joi.object({
         'any.required': 'O campo {{#key}} é obrigatório.',
         'string.pattern.base': 'O campo {{#key}} deve ser admin ou cliente.'
     }
-})
+});
 
 const esquemaAutor = joi.object({
     nomeCompleto: validaString,
@@ -44,8 +44,18 @@ const esquemaAutor = joi.object({
     }
 });
 
+const esquemaCategoria = joi.object({
+    nomeCategoria: validaString,
+}).options({
+    messages: {
+        'any.required': 'O campo {{#key}} é obrigatório.',
+        'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.'
+    }
+});
+
 module.exports = {
     esquemaLogin,
     esquemaClassificacao,
     esquemaAutor,
+    esquemaCategoria,
 };

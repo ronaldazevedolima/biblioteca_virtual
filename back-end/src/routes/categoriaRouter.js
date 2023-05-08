@@ -1,23 +1,18 @@
 const { Router } = require('express');
 
+const { tdsCategorias, categoriaId, criaCategoria, atlizCategoria, delCategoria } = require('../controllers/categoriaController');
+const validaCategoria = require('../middleware/validaCategoria');
 
 const categoriaRouter = Router();
 
-categoriaRouter.get('/', (req, res) => {
-    res.json({ message: 'categoria'});
-});
+categoriaRouter.get('/', tdsCategorias);
 
-categoriaRouter.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `categoria por id: ${id}`});
-});
+categoriaRouter.get('/:id', categoriaId);
 
-categoriaRouter.post('/', (req, res) => {});
+categoriaRouter.post('/', validaCategoria, criaCategoria);
 
-categoriaRouter.put('/:id', (req, res) => {});
+categoriaRouter.put('/:id', validaCategoria, atlizCategoria);
 
-categoriaRouter.patch('/:id', (req, res) => {});
-
-categoriaRouter.delete('/:id', (req, res) => {});
+categoriaRouter.delete('/:id', delCategoria );
 
 module.exports = categoriaRouter;
