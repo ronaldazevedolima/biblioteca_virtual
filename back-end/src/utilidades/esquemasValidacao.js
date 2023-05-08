@@ -34,7 +34,18 @@ const esquemaClassificacao = joi.object({
     }
 })
 
+const esquemaAutor = joi.object({
+    nomeCompleto: validaString,
+    nomeAutor: validaString,
+}).options({
+    messages: {
+        'any.required': 'O campo {{#key}} é obrigatório.',
+        'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.'
+    }
+});
+
 module.exports = {
     esquemaLogin,
     esquemaClassificacao,
+    esquemaAutor,
 };

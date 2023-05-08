@@ -1,23 +1,18 @@
 const { Router } = require('express');
 
+const { tdsAutores, autorId, criaAutor, atlizAutor, delAutor } = require('../controllers/autorController');
+const { validaAutor } = require('../middleware/validaAutor');
 
 const autorRouter = Router();
 
-autorRouter.get('/', (req, res) => {
-    res.json({ message: 'autor'});
-});
+autorRouter.get('/', tdsAutores);
 
-autorRouter.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `autor por id: ${id}`});
-});
+autorRouter.get('/:id', autorId);
 
-autorRouter.post('/', (req, res) => {});
+autorRouter.post('/', validaAutor, criaAutor);
 
-autorRouter.put('/:id', (req, res) => {});
+autorRouter.put('/:id', validaAutor, atlizAutor);
 
-autorRouter.patch('/:id', (req, res) => {});
-
-autorRouter.delete('/:id', (req, res) => {});
+autorRouter.delete('/:id', delAutor);
 
 module.exports = autorRouter;
