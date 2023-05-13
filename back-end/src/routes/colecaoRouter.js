@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const { tdsColecoes, colecaoId, criaColecao, atlizColecao, delColecao } = require('../controllers/colecaoController');
-
+const validaColecao = require('../middleware/validaColecao');
 
 const colecaoRouter = Router();
 
@@ -9,12 +9,10 @@ colecaoRouter.get('/', tdsColecoes);
 
 colecaoRouter.get('/:id', colecaoId);
 
-colecaoRouter.post('/', criaColecao);
+colecaoRouter.post('/', validaColecao, criaColecao);
 
-colecaoRouter.put('/:id', atlizColecao);
+colecaoRouter.put('/:id', validaColecao, atlizColecao);
 
-colecaoRouter.patch('/:id', delColecao);
-
-colecaoRouter.delete('/:id', );
+colecaoRouter.delete('/:id', delColecao);
 
 module.exports = colecaoRouter;

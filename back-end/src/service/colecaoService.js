@@ -49,7 +49,7 @@ const delColecao = async (id) => {
     return { status: 404, resposta: { mensagem: 'Coleção não encontrado.' } };
   }
   await db.Colecoes.destroy({ where: { idColecao: id } });
-  return { status: 200, resposta: { mensagem: 'Coleção deletado com sucesso.' } };
+  return { status: 200, resposta: { mensagem: 'Coleção deletada com sucesso.' } };
 };
 
 module.exports = {
