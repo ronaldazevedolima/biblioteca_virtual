@@ -1,23 +1,21 @@
 const { Router } = require('express');
+const { tdsLivros, livroPorId, criaLivro, atlzLivro, delLivro } = require('../controllers/livrosController');
 
+const { validaLivros, validaExistenciaCampos } = require('../middleware/validaLivros');
 
 const livrosRouter = Router();
 
-livrosRouter.get('/', (req, res) => {
-  res.json({ message: 'livros'});
-});
+livrosRouter.get('/', tdsLivros);
 
-livrosRouter.get('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `livros por id: ${id}`});
-});
+livrosRouter.get('/:id', livroPorId);
 
-livrosRouter.post('/', (req, res) => {});
+// acabei de fazer a validação dos campos, tanto no formato como na existencia
+livrosRouter.post('/', validaLivros, validaExistenciaCampos, criaLivro);
 
-livrosRouter.put('/:id', (req, res) => {});
+livrosRouter.put('/:id', atlzLivro);
 
-livrosRouter.patch('/:id', (req, res) => {});
+// livrosRouter.patch('/:id', );
 
-livrosRouter.delete('/:id', (req, res) => {});
+livrosRouter.delete('/:id', delLivro);
 
 module.exports = livrosRouter;

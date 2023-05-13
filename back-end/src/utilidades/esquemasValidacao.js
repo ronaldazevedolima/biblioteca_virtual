@@ -1,16 +1,18 @@
 const joi = require('joi');
 
 const validaString = joi.string().min(4).required();
+const validaNumber = joi.number().integer().min(1).required().strict();
 const validaRegex = (regex) => {
   return joi.string()
     .required()
     .pattern(new RegExp(regex));
 }; 
+
 const validaEmail = joi.string().email().required();
 
 const senhaRegex = '^[a-zA-Z0-9]{6,10}$';
-const classificacaoRegex = /^(admin|cliente)$/i;
 
+const classificacaoRegex = /^(admin|cliente)$/i;
 
 const esquemaLogin = joi.object({
   nome: validaString,
@@ -53,9 +55,50 @@ const esquemaCategoria = joi.object({
   }
 });
 
+const esquemaColecao = joi.object({
+  nomeColecao: validaString,
+  volumes: validaNumber,
+}).options({
+  messages: {
+    'any.required': 'O campo {{#key}} é obrigatório.',
+    'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.',
+    'number.min': 'O campo {{#key}} deve ser maior que {{#limit}}.',
+  }
+});
+
+const esquemaEditora = joi.object({
+  nomeEditora: validaString,
+}).options({
+  messages: {
+    'any.required': 'O campo {{#key}} é obrigatório.',
+    'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.'
+  }
+});
+
+const esquemaLivros = joi.object({
+  idColecao: validaNumber,
+  nomeLivro: validaString,
+  idAutor: validaNumber,
+  tenho: joi.valid(0, 1).required(),
+  lido: joi.valid(0, 1).required(),
+  nota: validaNumber,
+  idCategoria: validaNumber,
+  idEditora: validaNumber, 
+}).options({
+  messages:{
+    'any.required': 'O campo {{#key}} é obrigatório.',
+    'any.only': 'O campo {{#key}} deve ser 0 ou 1',
+    'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.',
+    'number.min': 'O campo {{#key}} deve ser maior que {{#limit}}.'
+  }
+});
+
 module.exports = {
   esquemaLogin,
   esquemaClassificacao,
   esquemaAutor,
   esquemaCategoria,
+  esquemaColecao,
+  esquemaEditora,
+  esquemaLivros,
 };

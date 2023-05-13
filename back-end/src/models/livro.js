@@ -39,7 +39,7 @@ const Livros = (sequelize, DataTypes) => {
   );
 
   criaLivros.associate = ({ Colecoes, Autores, Categorias, Editoras}) => {
-    criaLivros.belongsTo(Colecoes, { as: 'colecoes',  foreignKey: 'idColecao'});
+    criaLivros.belongsTo(Colecoes, { as: 'colecoes',  foreignKey: 'id_colecao'});
     criaLivros.belongsTo(Autores, { as: 'autores', foreignKey: 'idAutor' });
     criaLivros.belongsTo(Categorias, { as: 'categorias', foreignKey: 'idCategoria', targetKey: 'idCategoria' });
     criaLivros.belongsTo(Editoras, { as: 'editoras', foreignKey: 'idEditora', targetKey: 'idEditora' });

@@ -4,7 +4,7 @@ module.exports = {
       'livros',
       [
         {
-          id_Colecao: 2,
+          id_colecao: 2,
           nome_livro: 'A Sociedade do Anel',
           id_autor: 1,
           tenho: 1,
@@ -14,7 +14,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 2,
+          id_colecao: 2,
           nome_livro: 'As Duas Torres',
           id_autor: 1,
           tenho: 1,
@@ -24,7 +24,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 2,
+          id_colecao: 2,
           nome_livro: 'O Retorno do Rei',
           id_autor: 1,
           tenho: 1,
@@ -34,7 +34,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 6,
+          id_colecao: 6,
           nome_livro: 'O Arqueiro',
           id_autor: 2,
           tenho: 1,
@@ -44,7 +44,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 6,
+          id_colecao: 6,
           nome_livro: 'O Andarilho',
           id_autor: 2,
           tenho: 1,
@@ -54,7 +54,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 6,
+          id_colecao: 6,
           nome_livro: 'O Herege',
           id_autor: 2,
           tenho: 1,
@@ -64,7 +64,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 6,
+          id_colecao: 6,
           nome_livro: '1356',
           id_autor: 2,
           tenho: 1,
@@ -74,7 +74,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 5,
+          id_colecao: 5,
           nome_livro: 'O Rei do Inverno',
           id_autor: 2,
           tenho: 1,
@@ -84,7 +84,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 5,
+          id_colecao: 5,
           nome_livro: 'O Inimigo de Deus',
           id_autor: 2,
           tenho: 1,
@@ -94,7 +94,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 5,
+          id_colecao: 5,
           nome_livro: 'Excalibur',
           id_autor: 2,
           tenho: 1,
@@ -104,7 +104,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Último Reino',
           id_autor: 2,
           tenho: 1,
@@ -114,7 +114,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Cavaleiro da Morte',
           id_autor: 2,
           tenho: 1,
@@ -124,7 +124,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'Os Senhores do Norte',
           id_autor: 2,
           tenho: 1,
@@ -134,7 +134,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'A Canção da Espada',
           id_autor: 2,
           tenho: 1,
@@ -144,7 +144,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'Terra em Chamas',
           id_autor: 2,
           tenho: 1,
@@ -154,7 +154,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'Morte dos Reis',
           id_autor: 2,
           tenho: 1,
@@ -164,7 +164,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Guerreiro Pagão',
           id_autor: 2,
           tenho: 1,
@@ -174,7 +174,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Trono Vazio',
           id_autor: 2,
           tenho: 1,
@@ -184,7 +184,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'Guerreiros da Tempestade',
           id_autor: 2,
           tenho: 1,
@@ -194,7 +194,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Portador do Fogo',
           id_autor: 2,
           tenho: 1,
@@ -204,7 +204,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'A Guerra do Lobo',
           id_autor: 2,
           tenho: 0,
@@ -214,7 +214,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'A Espada dos Reis',
           id_autor: 2,
           tenho: 0,
@@ -224,7 +224,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 8,
+          id_colecao: 8,
           nome_livro: 'O Senhor da Guerra',
           id_autor: 2,
           tenho: 0,
@@ -234,7 +234,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 7,
+          id_colecao: 7,
           nome_livro: 'A Fortaleza de Sharpe',
           id_autor: 2,
           tenho: 1,
@@ -244,7 +244,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 13,
+          id_colecao: 13,
           nome_livro: 'O Filho da Luz',
           id_autor: 3,
           tenho: 1,
@@ -254,7 +254,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 13,
+          id_colecao: 13,
           nome_livro: 'O Templo de Milhões de Anos',
           id_autor: 3,
           tenho: 1,
@@ -264,7 +264,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 13,
+          id_colecao: 13,
           nome_livro: 'A Batalha de Kadesh',
           id_autor: 3,
           tenho: 1,
@@ -274,7 +274,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 13,
+          id_colecao: 13,
           nome_livro: 'A Dama de Abu-Simbel',
           id_autor: 3,
           tenho: 1,
@@ -284,7 +284,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 13,
+          id_colecao: 13,
           nome_livro: 'Sob a Acácia do Ocidente',
           id_autor: 3,
           tenho: 1,
@@ -294,7 +294,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 14,
+          id_colecao: 14,
           nome_livro: 'Nefer, o Silencioso',
           id_autor: 3,
           tenho: 1,
@@ -304,7 +304,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 14,
+          id_colecao: 14,
           nome_livro: 'A Mulher Sábia',
           id_autor: 3,
           tenho: 1,
@@ -314,7 +314,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 14,
+          id_colecao: 14,
           nome_livro: 'Paneb, o Ardoroso',
           id_autor: 3,
           tenho: 1,
@@ -324,7 +324,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 14,
+          id_colecao: 14,
           nome_livro: 'O Lugar da Verdade',
           id_autor: 3,
           tenho: 1,
@@ -334,7 +334,7 @@ module.exports = {
           id_editora: 5,
         },
         {
-          id_Colecao: 3,
+          id_colecao: 3,
           nome_livro: 'O Lobo das Planicies',
           id_autor: 4,
           tenho: 1,
@@ -344,7 +344,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 3,
+          id_colecao: 3,
           nome_livro: 'Os Senhores do Arco ',
           id_autor: 4,
           tenho: 1,
@@ -354,7 +354,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 3,
+          id_colecao: 3,
           nome_livro: 'Os Ossos das Colinas',
           id_autor: 4,
           tenho: 1,
@@ -364,7 +364,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 3,
+          id_colecao: 3,
           nome_livro: 'Império da Prata',
           id_autor: 4,
           tenho: 1,
@@ -374,7 +374,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 3,
+          id_colecao: 3,
           nome_livro: 'Conquistador',
           id_autor: 4,
           tenho: 0,
@@ -384,7 +384,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 4,
+          id_colecao: 4,
           nome_livro: 'Os Portões de Roma ',
           id_autor: 4,
           tenho: 1,
@@ -394,7 +394,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 4,
+          id_colecao: 4,
           nome_livro: 'A Morte dos Reis',
           id_autor: 4,
           tenho: 1,
@@ -404,7 +404,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 4,
+          id_colecao: 4,
           nome_livro: 'Campo de Espadas',
           id_autor: 4,
           tenho: 1,
@@ -414,7 +414,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 4,
+          id_colecao: 4,
           nome_livro: 'Os Deuses da Guerra',
           id_autor: 4,
           tenho: 1,
@@ -424,7 +424,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 4,
+          id_colecao: 4,
           nome_livro: 'Sangue dos Deuses',
           id_autor: 4,
           tenho: 0,
@@ -434,7 +434,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 12,
+          id_colecao: 12,
           nome_livro: 'A magia da alvorada',
           id_autor: 11,
           tenho: 1,
@@ -444,7 +444,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 12,
+          id_colecao: 12,
           nome_livro: 'A Magia do Anoitecer',
           id_autor: 11,
           tenho: 1,
@@ -454,7 +454,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 12,
+          id_colecao: 12,
           nome_livro: 'A Magia da Aurora',
           id_autor: 11,
           tenho: 1,
@@ -464,7 +464,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 19,
+          id_colecao: 19,
           nome_livro: 'Aprendiz',
           id_autor: 12,
           tenho: 1,
@@ -474,7 +474,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 19,
+          id_colecao: 19,
           nome_livro: 'Mestre',
           id_autor: 12,
           tenho: 1,
@@ -484,7 +484,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 19,
+          id_colecao: 19,
           nome_livro: 'Espinho de Prata',
           id_autor: 12,
           tenho: 1,
@@ -494,7 +494,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 19,
+          id_colecao: 19,
           nome_livro: 'As Trevas de Sethanon',
           id_autor: 12,
           tenho: 1,
@@ -504,7 +504,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 20,
+          id_colecao: 20,
           nome_livro: 'A Filha do Império',
           id_autor: 12,
           tenho: 1,
@@ -514,7 +514,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 20,
+          id_colecao: 20,
           nome_livro: 'A Serva do Império',
           id_autor: 12,
           tenho: 1,
@@ -524,7 +524,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 20,
+          id_colecao: 20,
           nome_livro: 'A senhora do império',
           id_autor: 12,
           tenho: 1,
@@ -534,7 +534,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Renascença',
           id_autor: 9,
           tenho: 1,
@@ -544,7 +544,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Irmandade',
           id_autor: 9,
           tenho: 1,
@@ -554,7 +554,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'A Cruzada Secreta',
           id_autor: 9,
           tenho: 1,
@@ -564,7 +564,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Revelações',
           id_autor: 9,
           tenho: 1,
@@ -574,7 +574,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Renegado',
           id_autor: 9,
           tenho: 1,
@@ -584,7 +584,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Bandeira Negra',
           id_autor: 9,
           tenho: 1,
@@ -594,7 +594,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'União',
           id_autor: 9,
           tenho: 0,
@@ -604,7 +604,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Submundo',
           id_autor: 9,
           tenho: 1,
@@ -614,7 +614,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 11,
+          id_colecao: 11,
           nome_livro: 'Juramento do Deserto',
           id_autor: 9,
           tenho: 0,
@@ -624,7 +624,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 15,
+          id_colecao: 15,
           nome_livro: 'Eragon',
           id_autor: 8,
           tenho: 1,
@@ -634,7 +634,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 15,
+          id_colecao: 15,
           nome_livro: 'Eldest',
           id_autor: 8,
           tenho: 1,
@@ -644,7 +644,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 15,
+          id_colecao: 15,
           nome_livro: 'Brisingr',
           id_autor: 8,
           tenho: 1,
@@ -654,7 +654,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 15,
+          id_colecao: 15,
           nome_livro: 'Herança',
           id_autor: 8,
           tenho: 1,
@@ -664,7 +664,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 15,
+          id_colecao: 15,
           nome_livro: 'O garfo, a bruxa e o dragão',
           id_autor: 8,
           tenho: 0,
@@ -674,7 +674,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 9,
+          id_colecao: 9,
           nome_livro: 'Jogos Vorazes',
           id_autor: 13,
           tenho: 1,
@@ -684,7 +684,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 9,
+          id_colecao: 9,
           nome_livro: 'Em Chamas',
           id_autor: 13,
           tenho: 1,
@@ -694,7 +694,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 9,
+          id_colecao: 9,
           nome_livro: 'A Esperança',
           id_autor: 13,
           tenho: 1,
@@ -704,7 +704,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 9,
+          id_colecao: 9,
           nome_livro: 'A Cantiga dos pássaros e das serpentes',
           id_autor: 13,
           tenho: 0,
@@ -714,7 +714,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'A Maldição do Tigre',
           id_autor: 20,
           tenho: 1,
@@ -724,7 +724,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'O Resgate do Tigre',
           id_autor: 20,
           tenho: 1,
@@ -734,7 +734,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'A Viagem do Tigre',
           id_autor: 20,
           tenho: 1,
@@ -744,7 +744,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'O Destino do Tigre',
           id_autor: 20,
           tenho: 1,
@@ -754,7 +754,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'A Promessa do Tigre',
           id_autor: 20,
           tenho: 0,
@@ -764,7 +764,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 26,
+          id_colecao: 26,
           nome_livro: 'O Sonho do Tigre',
           id_autor: 20,
           tenho: 0,
@@ -774,7 +774,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 25,
+          id_colecao: 25,
           nome_livro: 'O Nome do Vento',
           id_autor: 7,
           tenho: 1,
@@ -784,7 +784,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 25,
+          id_colecao: 25,
           nome_livro: 'O Temor do Sábio',
           id_autor: 7,
           tenho: 1,
@@ -794,7 +794,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 25,
+          id_colecao: 25,
           nome_livro: 'Doors of Stone',
           id_autor: 7,
           tenho: 0,
@@ -804,7 +804,7 @@ module.exports = {
           id_editora: 6,
         },
         {
-          id_Colecao: 18,
+          id_colecao: 18,
           nome_livro: 'A Senhora da Magia',
           id_autor: 14,
           tenho: 1,
@@ -814,7 +814,7 @@ module.exports = {
           id_editora: 16,
         },
         {
-          id_Colecao: 18,
+          id_colecao: 18,
           nome_livro: 'A Grande Rainha',
           id_autor: 14,
           tenho: 1,
@@ -824,7 +824,7 @@ module.exports = {
           id_editora: 16,
         },
         {
-          id_Colecao: 18,
+          id_colecao: 18,
           nome_livro: 'O Gamo-Rei',
           id_autor: 14,
           tenho: 1,
@@ -834,7 +834,7 @@ module.exports = {
           id_editora: 16,
         },
         {
-          id_Colecao: 18,
+          id_colecao: 18,
           nome_livro: 'O Prisioneiro da Árvore',
           id_autor: 14,
           tenho: 1,
@@ -844,7 +844,7 @@ module.exports = {
           id_editora: 16,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Pedra Filosofal',
           id_autor: 6,
           tenho: 1,
@@ -854,7 +854,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Câmara Secreta',
           id_autor: 6,
           tenho: 1,
@@ -864,7 +864,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Prisioneiro de Azkaban',
           id_autor: 6,
           tenho: 0,
@@ -874,7 +874,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Cálice de Fogo',
           id_autor: 6,
           tenho: 0,
@@ -884,7 +884,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Ordem da Fênix',
           id_autor: 6,
           tenho: 0,
@@ -894,7 +894,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Enigma do Príncipe',
           id_autor: 6,
           tenho: 0,
@@ -904,7 +904,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Relíquias da Morte',
           id_autor: 6,
           tenho: 0,
@@ -914,7 +914,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 10,
+          id_colecao: 10,
           nome_livro: 'Criança Amaldiçoada',
           id_autor: 6,
           tenho: 0,
@@ -924,7 +924,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 27,
+          id_colecao: 27,
           nome_livro: 'O Sonho de Olympias',
           id_autor: 15,
           tenho: 1,
@@ -934,7 +934,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 27,
+          id_colecao: 27,
           nome_livro: 'As areias de Ammon',
           id_autor: 15,
           tenho: 1,
@@ -944,7 +944,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 27,
+          id_colecao: 27,
           nome_livro: 'Os Confins do Mundo',
           id_autor: 15,
           tenho: 1,
@@ -954,7 +954,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'O Último Desejo',
           id_autor: 10,
           tenho: 1,
@@ -964,7 +964,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'A Espada do Destino',
           id_autor: 10,
           tenho: 1,
@@ -974,7 +974,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'O Sangue dos Elfos',
           id_autor: 10,
           tenho: 1,
@@ -984,7 +984,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'Tempo do Desprezo',
           id_autor: 10,
           tenho: 1,
@@ -994,7 +994,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'Batismo de Fogo',
           id_autor: 10,
           tenho: 1,
@@ -1004,7 +1004,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'A Torre da Andorinha',
           id_autor: 10,
           tenho: 1,
@@ -1014,7 +1014,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'A Senhora do Lago',
           id_autor: 10,
           tenho: 1,
@@ -1024,7 +1024,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 16,
+          id_colecao: 16,
           nome_livro: 'Tempo de Tempestade',
           id_autor: 10,
           tenho: 1,
@@ -1034,7 +1034,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 22,
+          id_colecao: 22,
           nome_livro: 'Dragões do Crepúsculo do Outono',
           id_autor: 16,
           tenho: 0,
@@ -1044,7 +1044,7 @@ module.exports = {
           id_editora: 13,
         },
         {
-          id_Colecao: 22,
+          id_colecao: 22,
           nome_livro: 'Dragões da Noite de Inverno',
           id_autor: 16,
           tenho: 1,
@@ -1054,7 +1054,7 @@ module.exports = {
           id_editora: 13,
         },
         {
-          id_Colecao: 22,
+          id_colecao: 22,
           nome_livro: 'Dragões do Alvorecer da Primavera',
           id_autor: 16,
           tenho: 1,
@@ -1064,7 +1064,7 @@ module.exports = {
           id_editora: 13,
         },
         {
-          id_Colecao: 22,
+          id_colecao: 22,
           nome_livro: 'Dragões de Uma Chama de Verão',
           id_autor: 16,
           tenho: 1,
@@ -1074,7 +1074,7 @@ module.exports = {
           id_editora: 13,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'A Guerra dos Tronos',
           id_autor: 5,
           tenho: 0,
@@ -1084,7 +1084,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'A Fúria dos Reis',
           id_autor: 5,
           tenho: 1,
@@ -1094,7 +1094,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'A Senhora do Lago',
           id_autor: 5,
           tenho: 1,
@@ -1104,7 +1104,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'A Tormenta de Espadas',
           id_autor: 5,
           tenho: 1,
@@ -1114,7 +1114,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'O Festim dos Corvos',
           id_autor: 5,
           tenho: 1,
@@ -1124,7 +1124,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'A Dança dos Dragões',
           id_autor: 5,
           tenho: 1,
@@ -1134,7 +1134,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 24,
+          id_colecao: 24,
           nome_livro: 'Os Ventos do Inverno',
           id_autor: 5,
           tenho: 0,
@@ -1144,7 +1144,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 28,
+          id_colecao: 28,
           nome_livro: 'A Espada de Shannara',
           id_autor: 17,
           tenho: 1,
@@ -1154,7 +1154,7 @@ module.exports = {
           id_editora: 7,
         },
         {
-          id_Colecao: 28,
+          id_colecao: 28,
           nome_livro: 'As Pedras Élficas de Shannara',
           id_autor: 17,
           tenho: 1,
@@ -1164,7 +1164,7 @@ module.exports = {
           id_editora: 7,
         },
         {
-          id_Colecao: 28,
+          id_colecao: 28,
           nome_livro: 'A Canção de Shannara',
           id_autor: 17,
           tenho: 0,
@@ -1174,7 +1174,7 @@ module.exports = {
           id_editora: 7,
         },
         {
-          id_Colecao: 23,
+          id_colecao: 23,
           nome_livro: 'Caçadores de Bruxas',
           id_autor: 19,
           tenho: 1,
@@ -1184,7 +1184,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 23,
+          id_colecao: 23,
           nome_livro: 'Corações de Neve',
           id_autor: 19,
           tenho: 1,
@@ -1194,7 +1194,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 23,
+          id_colecao: 23,
           nome_livro: 'Círculos de Chuva',
           id_autor: 19,
           tenho: 1,
@@ -1204,7 +1204,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 29,
+          id_colecao: 29,
           nome_livro: 'God Of War (vol. 1 )',
           id_autor: 29,
           tenho: 1,
@@ -1214,7 +1214,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 29,
+          id_colecao: 29,
           nome_livro: 'God Of War (vol. 2 )',
           id_autor: 29,
           tenho: 1,
@@ -1224,7 +1224,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 30,
+          id_colecao: 30,
           nome_livro: 'A Espada na Pedra',
           id_autor: 21,
           tenho: 1,
@@ -1234,7 +1234,7 @@ module.exports = {
           id_editora: 17,
         },
         {
-          id_Colecao: 30,
+          id_colecao: 30,
           nome_livro: 'A Rainha do Ar e das Sombras',
           id_autor: 21,
           tenho: 1,
@@ -1244,7 +1244,7 @@ module.exports = {
           id_editora: 17,
         },
         {
-          id_Colecao: 30,
+          id_colecao: 30,
           nome_livro: 'O Cavaleiro Imperfeito',
           id_autor: 21,
           tenho: 1,
@@ -1254,7 +1254,7 @@ module.exports = {
           id_editora: 17,
         },
         {
-          id_Colecao: 30,
+          id_colecao: 30,
           nome_livro: 'A Chama ao Vento',
           id_autor: 21,
           tenho: 0,
@@ -1264,7 +1264,7 @@ module.exports = {
           id_editora: 17,
         },
         {
-          id_Colecao: 30,
+          id_colecao: 30,
           nome_livro: 'O Livro de Merlin',
           id_autor: 21,
           tenho: 0,
@@ -1274,7 +1274,7 @@ module.exports = {
           id_editora: 17,
         },
         {
-          id_Colecao: 31,
+          id_colecao: 31,
           nome_livro: 'O Primeiro Guerreiro',
           id_autor: 22,
           tenho: 1,
@@ -1284,7 +1284,7 @@ module.exports = {
           id_editora: 11,
         },
         {
-          id_Colecao: 31,
+          id_colecao: 31,
           nome_livro: 'O Guerreiro de Deus',
           id_autor: 22,
           tenho: 1,
@@ -1294,7 +1294,7 @@ module.exports = {
           id_editora: 11,
         },
         {
-          id_Colecao: 31,
+          id_colecao: 31,
           nome_livro: 'As Cruzadas de 2020',
           id_autor: 22,
           tenho: 1,
@@ -1304,7 +1304,7 @@ module.exports = {
           id_editora: 11,
         },
         {
-          id_Colecao: 32,
+          id_colecao: 32,
           nome_livro: 'Herdeiros de Atlântida',
           id_autor: 27,
           tenho: 1,
@@ -1314,7 +1314,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 32,
+          id_colecao: 32,
           nome_livro: 'Anjos da Morte',
           id_autor: 27,
           tenho: 0,
@@ -1324,7 +1324,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 32,
+          id_colecao: 32,
           nome_livro: 'Paraíso Perdido',
           id_autor: 27,
           tenho: 0,
@@ -1334,7 +1334,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'As Mentiras de Locke Lamora',
           id_autor: 24,
           tenho: 0,
@@ -1344,7 +1344,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'Mares de Sangue',
           id_autor: 24,
           tenho: 0,
@@ -1354,7 +1354,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'República de Ladrões',
           id_autor: 24,
           tenho: 1,
@@ -1364,7 +1364,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'The Thorn of Emberlain ',
           id_autor: 24,
           tenho: 0,
@@ -1374,7 +1374,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'The Ministry of Necessity',
           id_autor: 24,
           tenho: 0,
@@ -1384,7 +1384,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'The Mage and the Master Spy',
           id_autor: 24,
           tenho: 0,
@@ -1394,7 +1394,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 33,
+          id_colecao: 33,
           nome_livro: 'Inherit the Night',
           id_autor: 24,
           tenho: 0,
@@ -1404,7 +1404,7 @@ module.exports = {
           id_editora: 12,
         },
         {
-          id_Colecao: 34,
+          id_colecao: 34,
           nome_livro: 'A Canção do Sangue',
           id_autor: 23,
           tenho: 1,
@@ -1414,7 +1414,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 34,
+          id_colecao: 34,
           nome_livro: 'O Senhor da Torre',
           id_autor: 23,
           tenho: 0,
@@ -1424,7 +1424,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 34,
+          id_colecao: 34,
           nome_livro: 'A Rainha do Fogo',
           id_autor: 23,
           tenho: 0,
@@ -1434,7 +1434,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 35,
+          id_colecao: 35,
           nome_livro: 'A Ordem',
           id_autor: 31,
           tenho: 1,
@@ -1444,7 +1444,7 @@ module.exports = {
           id_editora: 4,
         },
         {
-          id_Colecao: 35,
+          id_colecao: 35,
           nome_livro: 'Tempestade de Luz',
           id_autor: 31,
           tenho: 0,
@@ -1454,7 +1454,7 @@ module.exports = {
           id_editora: 4,
         },
         {
-          id_Colecao: 35,
+          id_colecao: 35,
           nome_livro: 'Livro de Cain',
           id_autor: 31,
           tenho: 0,
@@ -1464,7 +1464,7 @@ module.exports = {
           id_editora: 4,
         },
         {
-          id_Colecao: 35,
+          id_colecao: 35,
           nome_livro: 'Livro de Tyrael',
           id_autor: 31,
           tenho: 0,
@@ -1474,7 +1474,7 @@ module.exports = {
           id_editora: 4,
         },
         {
-          id_Colecao: 36,
+          id_colecao: 36,
           nome_livro: 'Uma Nova Esperança',
           id_autor: 28,
           tenho: 1,
@@ -1484,7 +1484,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 36,
+          id_colecao: 36,
           nome_livro: 'Império Contra-Ataca',
           id_autor: 28,
           tenho: 1,
@@ -1494,7 +1494,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 36,
+          id_colecao: 36,
           nome_livro: 'O Retorno de Jedi',
           id_autor: 28,
           tenho: 1,
@@ -1504,7 +1504,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'O Sobrinho do Mago ',
           id_autor: 35,
           tenho: 0,
@@ -1514,7 +1514,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'O Leão, A Feiticeira e o Guarda-roupa',
           id_autor: 35,
           tenho: 0,
@@ -1524,7 +1524,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'O Cavalo e seu Menino',
           id_autor: 35,
           tenho: 0,
@@ -1534,7 +1534,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'O Príncipe Caspian',
           id_autor: 35,
           tenho: 0,
@@ -1544,7 +1544,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'A Viagem do Peregrino da Alvorada',
           id_autor: 35,
           tenho: 0,
@@ -1554,7 +1554,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'A Cadeira de Prata',
           id_autor: 35,
           tenho: 0,
@@ -1564,7 +1564,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 37,
+          id_colecao: 37,
           nome_livro: 'A Última Batalha',
           id_autor: 35,
           tenho: 0,
@@ -1574,7 +1574,7 @@ module.exports = {
           id_editora: 15,
         },
         {
-          id_Colecao: 38,
+          id_colecao: 38,
           nome_livro: 'A Cor da Magia',
           id_autor: 37,
           tenho: 1,
@@ -1584,7 +1584,7 @@ module.exports = {
           id_editora: 10,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'A Queda De Artur',
           id_autor: 1,
           tenho: 1,
@@ -1594,7 +1594,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'A Lenda de Sigurd e Gudrún',
           id_autor: 1,
           tenho: 1,
@@ -1604,7 +1604,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Mestre Gil de Ham',
           id_autor: 1,
           tenho: 1,
@@ -1614,7 +1614,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Roverandom',
           id_autor: 1,
           tenho: 1,
@@ -1624,7 +1624,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Contos inacabados',
           id_autor: 1,
           tenho: 1,
@@ -1634,7 +1634,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'As Cartas de J. R. R. Tolkien',
           id_autor: 1,
           tenho: 1,
@@ -1644,7 +1644,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'O Silmarillion',
           id_autor: 1,
           tenho: 1,
@@ -1654,7 +1654,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'O Hobbit',
           id_autor: 1,
           tenho: 1,
@@ -1664,7 +1664,7 @@ module.exports = {
           id_editora: 1,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Atlantis',
           id_autor: 26,
           tenho: 1,
@@ -1674,7 +1674,7 @@ module.exports = {
           id_editora: 11,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'O Coração Dos Heróis',
           id_autor: 25,
           tenho: 1,
@@ -1684,7 +1684,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Jogador Nº 1',
           id_autor: 32,
           tenho: 1,
@@ -1694,7 +1694,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Ruas Estranhas',
           id_autor: 5,
           tenho: 0,
@@ -1704,7 +1704,7 @@ module.exports = {
           id_editora: 2,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Os Pilares da Terra',
           id_autor: 33,
           tenho: 1,
@@ -1714,7 +1714,7 @@ module.exports = {
           id_editora: 8,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Stonehenge',
           id_autor: 2,
           tenho: 0,
@@ -1724,7 +1724,7 @@ module.exports = {
           id_editora: 3,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'O Mundo Magico Do Senhor Dos Aneis',
           id_autor: 34,
           tenho: 0,
@@ -1734,7 +1734,7 @@ module.exports = {
           id_editora: 18,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Os Filhos de Húrin',
           id_autor: 1,
           tenho: 1,
@@ -1744,7 +1744,7 @@ module.exports = {
           id_editora: 9,
         },
         {
-          id_Colecao: 1,
+          id_colecao: 1,
           nome_livro: 'Fora de Controle',
           id_autor: 36,
           tenho: 0,
