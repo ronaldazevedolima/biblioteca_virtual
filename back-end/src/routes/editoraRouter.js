@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 const { tdsEditoras, criaEditora, editoraPorId, atlzEditora, delEditora } = require('../controllers/editoraController');
-
+const validaEditora = require('../middleware/validaEditora');
 
 const editoraRouter = Router();
 
@@ -9,9 +9,9 @@ editoraRouter.get('/', tdsEditoras);
 
 editoraRouter.get('/:id', editoraPorId);
 
-editoraRouter.post('/', criaEditora);
+editoraRouter.post('/', validaEditora, criaEditora);
 
-editoraRouter.put('/:id', atlzEditora);
+editoraRouter.put('/:id', validaEditora, atlzEditora);
 
 editoraRouter.delete('/:id', delEditora);
 

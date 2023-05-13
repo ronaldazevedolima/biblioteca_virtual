@@ -14,7 +14,7 @@ const Editoras = (sequelize, DataTypes) => {
     { 
       timestamps: false,
       underscored: true,
-     }
+    }
   );
 
   criaEditoras.associate = ({ Livros }) => {
