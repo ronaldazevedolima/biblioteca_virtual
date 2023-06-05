@@ -1,13 +1,13 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const criaAutor = await queryInterface.createTable('autores', {
-      id_autor: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nome_autor: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING,
       },

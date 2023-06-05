@@ -2,12 +2,12 @@ const Colecao = (sequelize, DataTypes) => {
   const criaColecao = sequelize.define(
     'Colecoes',
     {
-      idColecao: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      nomeColecao: {
+      nome: {
         type: DataTypes.STRING,
       },
       volumes: {
@@ -21,7 +21,7 @@ const Colecao = (sequelize, DataTypes) => {
   );
 
   criaColecao.associate = ({ Livros }) => {
-    criaColecao.hasMany(Livros, { as: 'livros', foreignKey: 'id_Colecao' });
+    criaColecao.hasMany(Livros, { as: 'Livros', foreignKey: 'id' });
   };
 
   return criaColecao;

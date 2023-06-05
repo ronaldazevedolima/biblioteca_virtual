@@ -8,7 +8,7 @@ module.exports = {
 
   up: async (queryInterface, Sequelize) => {
     const createUsuarios = queryInterface.createTable('usuarios', {
-      id_usuario: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,

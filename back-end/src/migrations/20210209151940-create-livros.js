@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const criaLivros = await queryInterface.createTable('livros', {
-      id_livro: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -10,18 +10,18 @@ module.exports = {
       id_colecao: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'colecoes', key: 'id_colecao' },
+        references: { model: 'colecoes', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      nome_livro: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING,
       },
       id_autor: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'autores', key: 'id_autor' },
+        references: { model: 'autores', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
@@ -41,14 +41,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'categorias', key: 'id_categoria' },
+        references: { model: 'categorias', key: 'id' },
       },
       id_editora: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'editoras', key: 'id_editora' },
+        references: { model: 'editoras', key: 'id' },
       },
     });
     return criaLivros;

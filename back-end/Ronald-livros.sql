@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS ronald_livros;
 USE ronald_livros;
 
 CREATE TABLE IF NOT EXISTS USURIO (
-    id_usuario SMALLINT, AUTO_INCREMENT, PRIMARY KEY,
+    id SMALLINT, AUTO_INCREMENT, PRIMARY KEY,
     nome VARCHAR(255), NOT NULL,
     email VARCHAR(255), NOT NULL,
     senha VARCHAR(10), NOT NULL,
@@ -10,41 +10,41 @@ CREATE TABLE IF NOT EXISTS USURIO (
 );
 
 CREATE TABLE IF NOT EXISTS AUTOR (
-id_autor SMALLINT AUTO_INCREMENT PRIMARY KEY,
-nome_autor VARCHAR(100) NOT NULL,
+id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
 nome_completo VARCHAR(100) NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS CATEGORIA (
-id_categoria SMALLINT AUTO_INCREMENT PRIMARY KEY,
-nome_categoria VARCHAR(50) NOT NULL
+id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS EDITORA (
-id_editora SMALLINT AUTO_INCREMENT PRIMARY KEY,
-nome_editora VARCHAR(50) NOT NULL
+id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS COLECAO (
-id_colecao SMALLINT AUTO_INCREMENT PRIMARY KEY,
-nome_colecao VARCHAR(70) NOT NULL,
+id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(70) NOT NULL,
 volumes SMALLINT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS LIVROS (
-id_livro SMALLINT AUTO_INCREMENT PRIMARY KEY,
+id SMALLINT AUTO_INCREMENT PRIMARY KEY,
 id_colecao SMALLINT,
-nome_livro VARCHAR(100) NOT NULL,
+nome VARCHAR(100) NOT NULL,
 id_autor SMALLINT NOT NULL,
 tenho BOOL NOT NULL,
 lido BOOL NOT NULL,
 nota SMALLINT,
 id_categoria SMALLINT NOT NULL,
 id_editora SMALLINT NOT NULL,
-FOREIGN KEY (id_autor) REFERENCES AUTOR(id_autor),
-FOREIGN KEY (id_editora) REFERENCES EDITORA(id_editora),
-FOREIGN KEY (id_colecao) REFERENCES COLECAO(id_colecao),
-FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id_categoria)
+FOREIGN KEY (id_autor) REFERENCES AUTOR(id),
+FOREIGN KEY (id_editora) REFERENCES EDITORA(id),
+FOREIGN KEY (id_colecao) REFERENCES COLECAO(id),
+FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id)
 );
 
 INSERT INTO USURIO (nome, email, senha, classificacao)
@@ -53,7 +53,7 @@ VALUES
 ('Lorena', 'lorena@lorena.com', '181216', 'cliente')
 
 
-INSERT INTO AUTOR (nome_autor, nome_completo)
+INSERT INTO AUTOR (nome, nome_completo)
 VALUES
 ('J. R. R. Tolkien', 'John Ronald Reuel Tolkien'),
 ('Bernard Cornwell', 'Bernard Cornwell'),
@@ -91,7 +91,7 @@ VALUES
 ('David Colbert', 'David Colbert');
 
 
-INSERT INTO EDITORA (nome_editora)
+INSERT INTO EDITORA (nome)
 VALUES
 ('Martins Fontes'),
 ('Leya'),
@@ -111,13 +111,13 @@ VALUES
 ('Imago');
 
 
-INSERT INTO CATEGORIA (nome_categoria)
+INSERT INTO CATEGORIA (nome)
 VALUES
 ('Literatura fantástica'),
 ('Ficção histórica'),
 ('Ficção científica');
 
-INSERT INTO COLECAO (nome_colecao, volumes)
+INSERT INTO COLECAO (nome, volumes)
 VALUES
 ('O Senhor dos Anéis', 3),
 ('O Conquistador', 5),
@@ -146,7 +146,7 @@ VALUES
 ('A Saga do Tigre', 6),
 ('Alexandros', 3);
 
-INSERT INTO LIVROS(id_colecao, nome_livro, id_autor, tenho, lido, nota, id_categoria, id_editora)
+INSERT INTO LIVROS(id_colecao, nome, id_autor, tenho, lido, nota, id_categoria, id_editora)
 VALUES
 (1, 'A Sociedade do Anel', 1, 1, 1, 10, 1, 1),
 (1, 'As Duas Torres', 1, 1, 1, 10, 1, 1),

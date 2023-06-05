@@ -2,12 +2,12 @@ const Autores = (sequelize, DataTypes) => {
   const criaAutores = sequelize.define(
     'Autores',
     {
-      idAutor: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      nomeAutor: {
+      nome: {
         type: DataTypes.STRING,
       },
       nomeCompleto: {
@@ -17,7 +17,7 @@ const Autores = (sequelize, DataTypes) => {
     { 
       timestamps: false,
       underscored: true
-   }
+    }
   );
 
   criaAutores.associate = ({ Livros }) => {

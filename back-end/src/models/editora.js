@@ -2,12 +2,12 @@ const Editoras = (sequelize, DataTypes) => {
   const criaEditoras = sequelize.define(
     'Editoras',
     {
-      idEditora: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      nomeEditora: {
+      nome: {
         type: DataTypes.STRING,
       },
     },
@@ -18,7 +18,7 @@ const Editoras = (sequelize, DataTypes) => {
   );
 
   criaEditoras.associate = ({ Livros }) => {
-    criaEditoras.hasMany(Livros, { as: 'livros', foreignKey: 'idEditora' });
+    criaEditoras.hasMany(Livros, { as: 'Livros', foreignKey: 'idEditora' });
   };
   return criaEditoras;
 };

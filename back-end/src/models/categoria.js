@@ -2,23 +2,23 @@ const Categorias = (sequelize, DataTypes) => {
   const criaCategorias = sequelize.define(
     'Categorias',
     {
-      idCategoria: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      nomeCategoria: {
+      nome: {
         type: DataTypes.STRING,
       },
     },
     { 
       timestamps: false,
       underscored:true,
-   }
+    }
   );
 
   criaCategorias.associate = ({ Livros }) => {
-    criaCategorias.hasMany(Livros, { as: 'livros', foreignKey: 'idCategoria' });
+    criaCategorias.hasMany(Livros, { as: 'Livros', foreignKey: 'idCategoria' });
   };
   return criaCategorias;
 };

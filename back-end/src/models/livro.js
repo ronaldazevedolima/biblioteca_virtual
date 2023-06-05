@@ -2,7 +2,7 @@ const Livros = (sequelize, DataTypes) => {
   const criaLivros = sequelize.define(
     'Livros',
     {
-      idLivro: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -10,7 +10,7 @@ const Livros = (sequelize, DataTypes) => {
       idColecao: {
         type: DataTypes.INTEGER,
       },
-      nomeLivro: {
+      nome: {
         type: DataTypes.STRING,
       },
       idAutor: {
@@ -39,10 +39,10 @@ const Livros = (sequelize, DataTypes) => {
   );
 
   criaLivros.associate = ({ Colecoes, Autores, Categorias, Editoras}) => {
-    criaLivros.belongsTo(Colecoes, { as: 'colecoes',  foreignKey: 'id_colecao'});
-    criaLivros.belongsTo(Autores, { as: 'autores', foreignKey: 'idAutor' });
-    criaLivros.belongsTo(Categorias, { as: 'categorias', foreignKey: 'idCategoria', targetKey: 'idCategoria' });
-    criaLivros.belongsTo(Editoras, { as: 'editoras', foreignKey: 'idEditora', targetKey: 'idEditora' });
+    criaLivros.belongsTo(Colecoes, { as: 'colecao',  foreignKey: 'idColecao', targetKey: 'id'});
+    criaLivros.belongsTo(Autores, { as: 'autor', foreignKey: 'idAutor', targetKey: 'id' });
+    criaLivros.belongsTo(Categorias, { as: 'categoria', foreignKey: 'idCategoria', targetKey: 'id' });
+    criaLivros.belongsTo(Editoras, { as: 'editora', foreignKey: 'idEditora', targetKey: 'id' });
   };
   return criaLivros;
 };

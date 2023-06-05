@@ -3,9 +3,9 @@ module.exports = {
     await queryInterface.bulkInsert(
       'categorias',
       [
-        { nome_categoria: 'Literatura fantástica' },
-        { nome_categoria: 'Ficção histórica' },
-        { nome_categoria: 'Ficção científica' },
+        { nome: 'Literatura fantástica' },
+        { nome: 'Ficção histórica' },
+        { nome: 'Ficção científica' },
       ],
       {
         timestamps: false,
