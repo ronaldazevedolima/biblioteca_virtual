@@ -77,7 +77,7 @@ const esquemaEditora = joi.object({
 
 const esquemaLivros = joi.object({
   idColecao: validaNumber,
-  nomeLivro: validaString,
+  nome: validaString,
   idAutor: validaNumber,
   tenho: joi.valid(0, 1).required(),
   lido: joi.valid(0, 1).required(),

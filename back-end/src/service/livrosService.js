@@ -1,6 +1,27 @@
 const { Op } = require('sequelize');
-const { nomeColuna, defineNomeModel } = require('../utilidades/utilidades');
+const { defineNomeModel, acessaPropriedade, formataLivrosRotasTenhoLido, criaArrayFlagIncludes } = require('../utilidades/utilidades');
 const db = require('../models');
+
+const arrCamposPossiveis = [
+  'autor',
+  'editora',
+  'colecao',
+  'categoria',
+];
+
+const valoFlagAttributes = ['id', 'nome', 'lido', 'tenho', 'nota'];
+
+const procuraLivrosNaoLidosOuNaoTenho = async (coluna) => {
+  
+  const valorFlagIncludes = criaArrayFlagIncludes(db, arrCamposPossiveis);
+
+  const listaLivros = await db.Livros.findAll({ where: { [coluna]: false }, attributes: valoFlagAttributes, include: valorFlagIncludes });
+
+  const livrosFormatados = formataLivrosRotasTenhoLido(listaLivros);
+ 
+  return { status: 200, resposta: livrosFormatados };
+};
+
 
 const tdsLivros = async () => {
   const listaLivros = await db.Livros.findAll();
@@ -8,67 +29,40 @@ const tdsLivros = async () => {
   return { status: 200, resposta: filtroDados };
 };
 
-const teste = (e, string) => {
-  return e.dataValues[string]?.dataValues.nome;
-}
-const arr = [
-  'autor',
-  'editora',
-  'colecao',
-  'categoria',
-];
 const procuraLivro = async (query) => {
   const entradas = Object.entries(query);
   const filtraCampoNome = entradas.filter((valor) => valor[0] !== 'nome');
-  // console.log('filtraCampoNome', filtraCampoNome);
-  const test = arr.map((e) => {
-    let filt = filtraCampoNome.find((el) => el[0] === e);
-    let where = filt ? { nome: { [Op.like]: `%${filt[1]}%` } } : {};  
-    const retorno = {
-      model: db[defineNomeModel(e)],
-      as: e,
+
+  const valorFlagIncludes = arrCamposPossiveis.map((campoPossivel) => {
+    const campoPassadoNaPesquisa = filtraCampoNome.find((campo) => campo[0] === campoPossivel);
+    const where = campoPassadoNaPesquisa ? { nome: { [Op.like]: `%${campoPassadoNaPesquisa[1]}%` } } : {};  
+    const operador = {
+      model: db[defineNomeModel(campoPossivel)],
+      as: campoPossivel,
       where,
       attributes: ['nome'],
-    }
-    return retorno;
+    };
+    return operador;
   });
-  console.log('test', test);
-//   const criaOperadoresParaBuscarLivros = filtraCampoNome.map((operador) => {
-//     const model = a
-//     return ({
-//       model: db[defineNomeModel(operador[0])],
-//       as: operador[0],
-//       where: { nome: { [Op.like]: `%${operador[1]}%` } },
-//       attributes: ['nome'],
-//     })
-// });
-  // console.log('criaOperadoresParaBuscarLivros', criaOperadoresParaBuscarLivros);
   
-  const operadorWhere = query.nome ? { nome: { [Op.like]: `%${query.nome}%` } } : {}; 
+  const valorFlagWhere = query.nome ? { nome: { [Op.like]: `%${query.nome}%` } } : {}; 
 
-  // const livros = await db.Livros.findAll({ where: operadorWhere, include: criaOperadoresParaBuscarLivros });
-  const livros = await db.Livros.findAll({ where: operadorWhere, include: test });
+  const livros = await db.Livros.findAll({ where: valorFlagWhere, attributes: valoFlagAttributes, include: valorFlagIncludes });
 
-  // const writersArray = promiseWritersResolved.map(
-  //   (writer) => writer[0].dataValues
-  // );
-  // through sequelize
   const livrosFormatados =  livros.map((e) => {
-    // const { id, nome, idAutor, idEditora, idColecao, idCategoria, tenho, lido, nota } = e.dataValues;
-    const { idAutor, idEditora, idColecao, idCategoria, ...outros} = e.dataValues;
     const livroEditado = {
-     ...outros,
-      autor: teste(e, 'autor') || idAutor,
-      editora: teste(e, 'editora') || idEditora,
-      colecao: teste(e, 'colecao') || idColecao,
-      categoria: teste(e, 'categoria') || idCategoria,
+      ...e.dataValues,
+      autor: acessaPropriedade(e, 'autor'),
+      editora: acessaPropriedade(e, 'editora'),
+      colecao: acessaPropriedade(e, 'colecao'),
+      categoria: acessaPropriedade(e, 'categoria'),
     };    
     return livroEditado;
   });
   return { status: 200, resposta: livrosFormatados };
 };
 
-const livroPorId = async (id) => {
+const procuraLivroPorId = async (id) => {
   const livro = await db.Livros.findByPk(id);
   if (!livro) {
     return { status: 404, resposta: { mensagem: 'Livro não encontrado.' } };
@@ -87,7 +81,7 @@ const atlizLivro = async (id, obj) => {
     }
   });
   if (atualizado) {
-    const livro = await livroPorId(id);
+    const livro = await procuraLivroPorId(id);
     return { status: 200, resposta: livro.resposta };
   }
 
@@ -95,8 +89,8 @@ const atlizLivro = async (id, obj) => {
 };
 
 const criaLivro = async (obj) => {
-  const { nomeLivro } = obj;
-  const livro = await db.Livros.findAll({ where: { nomeLivro } });
+  const { nome } = obj;
+  const livro = await db.Livros.findAll({ where: { nome } });
   if (livro.length !== 0) {
     return { status: 409, resposta: { mensagem: 'Livro já cadastrado no banco de dados.'}};
   }
@@ -131,62 +125,11 @@ const atlizLido = async (id, nota) => {
 
 module.exports = {
   tdsLivros,
-  livroPorId,
+  procuraLivroPorId,
   procuraLivro,
   atlizLivro,
   atlizLido,
   criaLivro,
   delLivro,
+  procuraLivrosNaoLidosOuNaoTenho,
 };
-
-
-
-// const procuraLivro = async (query) => {
-//   console.log('query', query);
-//   const entradas = Object.entries(query);
-//   const [valoresBusca] = await Promise.all(entradas.map((valor) => {
-//     const [key, value] = valor;
-//     const coluna = nomeColuna(key);
-//     if (coluna === 'nome') {
-//       return  value ;
-//     }
-//     const model = defineNomeModel(coluna);
-//     const id = db[model].findAll({ where: { nome: {
-//       [Op.like]: `%${value}%`
-//     }}
-//     });
-//     return id;
-//   }));
-//   console.log('valoresBusca', valoresBusca);
-//   // const operadorer = valoresBusca.map((valor, index) => {
-//   //   const coluna = nomeColuna(entradas[index][0]);
-//   //   if (typeof valor === 'string' || valor === null) {
-//   //     return { [coluna]: { [Op.like]: `%${valor}%` } };
-//   //   }
-//   //   const valorId = valor.dataValues.id;
-//   //   return { [coluna]: valorId };
-//   // });
-//   // console.log('operadorer', operadorer);
-  
-//   // const livros = await db.Livros.findAll({ where: { 
-//   //   [Op.and]: operadorer
-//   // }
-//   // });
-//   // console.log('livros', livros);
-//   // if (!livros) {
-//   //   return { status: 404, resposta: { mensagem: 'Livros não encontrados.' } };
-//   // }
-//   // const filtroDados = livros.map((el) => el.dataValues);
-//   // return { status: 200, resposta: filtroDados };
-//   return { status: 200, resposta: 'oi' };
-// };
-
-
-
-
-// ({
-  //   model: db[defineNomeModel(operador[0])],
-  //   as: operador[0],
-  //   where: { nome: { [Op.like]: `%${operador[1]}%` } },
-  //   attributes: ['nome'],
-  // })

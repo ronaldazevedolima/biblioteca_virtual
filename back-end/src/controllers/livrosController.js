@@ -39,6 +39,19 @@ const delLivro = async (req, res) => {
 const procuraLivro = async (req, res) => {
   const { query } = req;
   const { status, resposta } = await livroService.procuraLivro(query);
+  if (resposta.length === 0) {
+    return res.status(status).json({ mensagem: 'Nenhum livro encontrado' });
+  }
+  res.status(status).json(resposta);
+};
+
+const livrosNaoLidos = async (req, res) => {
+  const { status, resposta } = await livroService.procuraLivrosNaoLidosOuNaoTenho('lido');
+  res.status(status).json(resposta);
+};
+
+const livrosNaoTenho = async (req, res) => {
+  const { status, resposta } = await livroService.procuraLivrosNaoLidosOuNaoTenho('tenho');
   res.status(status).json(resposta);
 };
 
@@ -50,4 +63,6 @@ module.exports = {
   atlzLivro,
   atlizLido,
   delLivro,
+  livrosNaoLidos,
+  livrosNaoTenho,
 };

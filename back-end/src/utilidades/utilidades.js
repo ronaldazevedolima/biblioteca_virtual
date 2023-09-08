@@ -26,8 +26,41 @@ const checaElementosPorId = async (models, entradas) => {
 
 const criaEntradasVerificarId = (req) => Object.entries(req.body).filter((e) => e[0].includes('id') && !e[0].includes('lido'));
 
+const acessaPropriedade = (e, string) => {
+  return e.dataValues[string].dataValues.nome;
+};
+
+const formataLivrosRotasTenhoLido = (listaLivros) => {
+  const resultado = listaLivros.map((e) => {
+    const {nome, tenho} = e.dataValues;
+    const livroEditado = {
+      nome,
+      tenho,
+      autor: acessaPropriedade(e, 'autor'),
+      colecao: acessaPropriedade(e, 'colecao'),
+    };    
+    return livroEditado;
+  });
+  return resultado;
+};
+
+const criaArrayFlagIncludes = (db, array) => {
+  const resultado = array.map((campoPossivel) => {
+    const operador = {
+      model: db[defineNomeModel(campoPossivel)],
+      as: campoPossivel,
+      where: {},
+      attributes: ['nome'],
+    };
+    return operador;
+  });
+  return resultado;
+};
 
 module.exports = {
+  criaArrayFlagIncludes,
+  acessaPropriedade,
+  formataLivrosRotasTenhoLido,
   checaElementosPorId,
   criaEntradasVerificarId,
   formataEntradaModel,
