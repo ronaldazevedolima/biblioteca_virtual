@@ -1,11 +1,14 @@
-# biblioteca_virtual
-Com esse projeto busco manter um registro dos meus livros e ter um controle maior da minha coleção e  consolidar meu aprendizado em desenvolvimento front-end e back-end. 
+# Biblioteca_virtual
+Projeto iniciado no periodo de estudos feito com objetivo de manter um registro dos meus livros e ter um controle maior da minha coleção e consolidar meu aprendizado em desenvolvimento web. 
 
+##Back-end
+Próximos passos
+- Terminar rotas faltantes
+- Implementar os teste
+- Adicionar emcriptador de senhas(bcript)
 
-Aplicabilidade:
-    - Listar todos os livros
-    - Ver a informação de um livro em especifico
-    - Adicionar um livro
-    - Buscar um livro pelo nome
-    - Editar um livro
-    - 
+## Front-end
+Próximos passos
+- Tudo :D 
+
+    
