@@ -38,7 +38,7 @@ const esquemaClassificacao = joi.object({
 
 const esquemaAutor = joi.object({
   nomeCompleto: validaString,
-  nomeAutor: validaString,
+  nome: validaString,
 }).options({
   messages: {
     'any.required': 'O campo {{#key}} é obrigatório.',
