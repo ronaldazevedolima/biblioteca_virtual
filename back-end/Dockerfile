@@ -12,4 +12,3 @@ EXPOSE 3002
 
 ENTRYPOINT [ "npm", "run" ]
 CMD [ "start" ]
-

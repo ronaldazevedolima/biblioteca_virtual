@@ -14,15 +14,17 @@ services:
     env_file:
       - ./back-end/.env
 #  Redundância para facilitar a lentura e identificação das variáveis necessárias
-    environment:
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - HOSTNAME=${HOSTNAME}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - PORT=${PORT}
+    # environment:
+    #   MYSQL_USER: ${MYSQL_USER}
+    #   JWT_SECRET: ${JWT_SECRET}
+    #   MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    #   MYSQL_HOST: ${MYSQL_HOST}
+    #   MYSQL_DATABASE: ${MYSQL_DATABASE}
+    #   PORT: ${PORT}
     depends_on:
       - db
   db:
+    container_name: biblioteca_db
     platform: linux/x86_64
     image: mysql:8.0.23
     restart: on-failure
@@ -31,9 +33,12 @@ services:
     
     environment:
       - MYSQL_ROOT_PASSWORD=181216
-      - MYSQL_PASSWORD=181216
 
     volumes:
       - database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
+      timeout: 10s
+      retries: 5
 volumes:
   database:
