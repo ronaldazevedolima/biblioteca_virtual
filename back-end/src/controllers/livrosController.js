@@ -7,7 +7,7 @@ const tdsLivros = async (req, res) => {
 
 const livroPorId = async (req, res) => {
   const { id } = req.params;
-  const { status, resposta } = await livroService.livroPorId(id);
+  const { status, resposta } = await livroService.procuraLivroPorId(id);
   res.status(status).json(resposta);
 };
 

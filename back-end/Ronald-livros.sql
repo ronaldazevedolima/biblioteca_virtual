@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS ronald_livros;
 USE ronald_livros;
 
-CREATE TABLE IF NOT EXISTS USURIO (
+CREATE TABLE IF NOT EXISTS USUARIO (
     id SMALLINT, AUTO_INCREMENT, PRIMARY KEY,
     nome VARCHAR(255), NOT NULL,
     email VARCHAR(255), NOT NULL,
@@ -47,7 +47,7 @@ FOREIGN KEY (id_colecao) REFERENCES COLECAO(id),
 FOREIGN KEY (id_categoria) REFERENCES CATEGORIA(id)
 );
 
-INSERT INTO USURIO (nome, email, senha, classificacao)
+INSERT INTO USUARIO (nome, email, senha, classificacao)
 VALUES
 ('Ronald', 'ronald@ronald.com', '181216', 'admin'),
 ('Lorena', 'lorena@lorena.com', '181216', 'cliente')
