@@ -121,7 +121,8 @@ const atlizLido = async (id, nota) => {
   }
 
   const livroAtualizado = await db.Livros.findByPk(id);
-  return { status: 200, resposta: livroAtualizado.dataValues };};
+  return { status: 200, resposta: livroAtualizado.dataValues };
+};
 
 module.exports = {
   tdsLivros,

@@ -39,7 +39,6 @@ const criaAutor = async (obj) => {
     return { status: 409, resposta: { mensagem: 'Autor já cadastrado no banco de dados.'}};
   }
   const infoAutorCriado = await db.Autores.create(obj);
-  console.log('infoautorcriado', infoAutorCriado);
   return { status: 201, resposta: infoAutorCriado };
 };
 
