@@ -9,6 +9,8 @@ const autorRouter = Router();
  * @swagger
  * /autores:
  *   get:
+ *     tags:
+ *       - Autores
  *     summary: Retorna a lista de autores
  *     description: Retorna todos os autores cadastrados no sistema.
  *     responses:
@@ -30,6 +32,18 @@ const autorRouter = Router();
  *                   nomeCompleto:
  *                     type: string
  *                     example: "John Ronald Reuel Tolkien"
+ *             examples:
+ *               Exemplo 1:
+ *                 value:
+ *                   - id: 1
+ *                     nome: "J. R. R. Tolkien"
+ *                     nomeCompleto: "John Ronald Reuel Tolkien"
+ *                   - id: 2
+ *                     nome: "Bernard Cornwell"
+ *                     nomeCompleto: "Bernard Cornwell"
+ *                   - id: 3
+ *                     nome: "Christian Jacq"
+ *                     nomeCompleto: "Christian Jacq"
  */
 
 autorRouter.get('/', tdsAutores);
@@ -38,6 +52,8 @@ autorRouter.get('/', tdsAutores);
  * @swagger
  * /autores/{id}:
  *   get:
+ *     tags:
+ *       - Autores
  *     summary: Retorna um autor específico pelo ID
  *     description: Busca um autor cadastrado no sistema pelo ID.
  *     parameters:
@@ -82,6 +98,8 @@ autorRouter.get('/:id', autorId);
  * @swagger
  * /autores:
  *   post:
+ *     tags:
+ *       - Autores
  *     summary: Cadastra um novo autor
  *     description: Cria um novo autor no sistema.
  *     requestBody:
@@ -132,6 +150,8 @@ autorRouter.post('/', validaAutor, criaAutor);
  * @swagger
  * /autores/{id}:
  *   put:
+ *     tags:
+ *       - Autores
  *     summary: Atualiza um autor pelo ID
  *     description: Atualiza os dados de um autor existente.
  *     parameters:
@@ -191,6 +211,8 @@ autorRouter.put('/:id', validaAutor, atlizAutor);
  * @swagger
  * /autores/{id}:
  *   delete:
+ *     tags:
+ *       - Autores
  *     summary: Remove um autor pelo ID
  *     description: Exclui um autor cadastrado no sistema.
  *     parameters:
