@@ -47,7 +47,7 @@ const esquemaAutor = joi.object({
 });
 
 const esquemaCategoria = joi.object({
-  nomeCategoria: validaString,
+  nome: validaString,
 }).options({
   messages: {
     'any.required': 'O campo {{#key}} é obrigatório.',
@@ -56,7 +56,7 @@ const esquemaCategoria = joi.object({
 });
 
 const esquemaColecao = joi.object({
-  nomeColecao: validaString,
+  nome: validaString,
   volumes: validaNumber,
 }).options({
   messages: {
@@ -67,7 +67,7 @@ const esquemaColecao = joi.object({
 });
 
 const esquemaEditora = joi.object({
-  nomeEditora: validaString,
+  nome: validaString,
 }).options({
   messages: {
     'any.required': 'O campo {{#key}} é obrigatório.',

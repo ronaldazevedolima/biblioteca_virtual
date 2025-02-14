@@ -22,7 +22,7 @@ const atlizCategoria = async (id, obj) => {
   }
   const [atualizada] = await db.Categorias.update({ ...obj }, {
     where: {
-      idCategoria: id
+      id
     }
   });
   if (atualizada) {
@@ -30,27 +30,30 @@ const atlizCategoria = async (id, obj) => {
     return { status: 200, resposta: categoria.resposta };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204};
 };
 
 const criaCategoria = async (obj) => {
-  const { nomeCategoria } = obj;
-  const categoria = await db.Categorias.findAll({ where: { nomeCategoria } });
+  const { nome } = obj;
+  const categoria = await db.Categorias.findAll({ where: { nome } });
   if (categoria.length !== 0) {
     return { status: 409, resposta: { mensagem: 'Categoria já cadastrado no banco de dados.'}};
   }
   const infoCategoriaCriada = await db.Categorias.create(obj);
-  console.log('infoCategoriacriado', infoCategoriaCriada);
-  return { status: 201, resposta: infoCategoriaCriada };
+  return { status: 201, resposta: infoCategoriaCriada.dataValues };
 };
 
 const delCategoria = async (id) => {
   const categoriaValida = await db.Categorias.findByPk(id);
   if (!categoriaValida) {
-    return { status: 404, resposta: { mensagem: 'Categoria não encontrado.' } };
+    return { status: 404, resposta: { mensagem: 'Categoria não encontrada.' } };
   }
-  await db.Categorias.destroy({ where: { idCategoria: id } });
-  return { status: 200, resposta: { mensagem: 'Categoria deletado com sucesso.' } };
+  try {
+    await db.Categorias.destroy({ where: { idCategoria: id } });
+    return { status: 200, resposta: { mensagem: 'Categoria deletada com sucesso.' } };    
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Categoria não deletada.' } };
+  }
 };
 
 module.exports = {
