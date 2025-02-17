@@ -21,7 +21,7 @@ const atlizColecao = async (id, obj) => {
   }
   const [atualizada] = await db.Colecoes.update({ ...obj }, {
     where: {
-      idColecao: id
+      id: id
     }
   });
   if (atualizada) {
@@ -29,18 +29,17 @@ const atlizColecao = async (id, obj) => {
     return { status: 200, resposta: colecao.resposta };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204 };
 };
 
 const criaColecao = async (obj) => {
-  const { nomeColecao } = obj;
-  const colecao = await db.Colecoes.findAll({ where: { nomeColecao } });
+  const { nome } = obj;
+  const colecao = await db.Colecoes.findAll({ where: { nome } });
   if (colecao.length !== 0) {
     return { status: 409, resposta: { mensagem: 'Coleção já cadastrado no banco de dados.'}};
   }
   const infoColecaoCriada = await db.Colecoes.create(obj);
-  console.log('infoColecaocriado', infoColecaoCriada);
-  return { status: 201, resposta: infoColecaoCriada };
+  return { status: 201, resposta: infoColecaoCriada.dataValues };
 };
 
 const delColecao = async (id) => {
@@ -48,8 +47,12 @@ const delColecao = async (id) => {
   if (!colecaoValida) {
     return { status: 404, resposta: { mensagem: 'Coleção não encontrado.' } };
   }
-  await db.Colecoes.destroy({ where: { idColecao: id } });
-  return { status: 200, resposta: { mensagem: 'Coleção deletada com sucesso.' } };
+  try {
+    await db.Colecoes.destroy({ where: { idColecao: id } });
+    return { status: 200, resposta: { mensagem: 'Coleção deletada com sucesso.' } };    
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Coleção não deletada.' } };
+  }
 };
 
 module.exports = {
