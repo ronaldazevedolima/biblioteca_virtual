@@ -164,7 +164,7 @@ const colecaoRouter = Router();
  *             properties:
  *               nome:
  *                 type: string
- *                 minLength: 3
+ *                 minLength: 4
  *                 example: "O Senhor dos Anéis"
  *               volumes:
  *                 type: integer
