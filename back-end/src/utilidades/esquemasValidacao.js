@@ -63,6 +63,7 @@ const esquemaColecao = joi.object({
     'any.required': 'O campo {{#key}} é obrigatório.',
     'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.',
     'number.min': 'O campo {{#key}} deve ser maior que {{#limit}}.',
+    'number.base': 'O campo {{#key}} deve ser um numero.'
   }
 });
 
