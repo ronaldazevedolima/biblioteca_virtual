@@ -107,12 +107,17 @@ autorRouter.get('/:id', autorId);
  *       content:
  *         application/json:
  *           schema:
+ *             required:
+ *               - nome
+ *               - nomeCompleto
  *             type: object
  *             properties:
  *               nome:
+ *                 minLength: 4
  *                 type: string
  *                 example: "Isaac Asimov"
  *               nomeCompleto:
+ *                 minLength: 4
  *                 type: string
  *                 example: "Isaac Asimov"
  *     responses:
@@ -166,12 +171,17 @@ autorRouter.post('/', validaAutor, criaAutor);
  *       content:
  *         application/json:
  *           schema:
+ *             required:
+ *               - nome
+ *               - nomeCompleto
  *             type: object
  *             properties:
  *               nome:
+ *                 minLength: 4
  *                 type: string
  *                 example: "Isaac Asimov"
  *               nomeCompleto:
+ *                 minLength: 4
  *                 type: string
  *                 example: "Isaac Asimov"
  *     responses:

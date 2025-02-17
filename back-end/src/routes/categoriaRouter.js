@@ -49,10 +49,13 @@ const categoriaRouter = Router();
  *       content:
  *         application/json:
  *           schema:
+ *             required:
+ *               - nome
  *             type: object
  *             properties:
  *               nome:
  *                 type: string
+ *                 minLength: 4
  *                 example: "Romance"
  *     responses:
  *       201:
@@ -132,9 +135,12 @@ const categoriaRouter = Router();
  *       content:
  *         application/json:
  *           schema:
+ *             required:
+ *               - nome
  *             type: object
  *             properties:
  *               nome:
+ *                 minLength: 4
  *                 type: string
  *                 example: "Romance"
  *     responses:
