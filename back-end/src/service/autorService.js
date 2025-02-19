@@ -48,7 +48,7 @@ const delAutor = async (id) => {
     return { status: 404, resposta: { mensagem: 'Autor não encontrado.' } };
   }
   try {
-    await db.Autores.destroy({ where: { idAutor: id } });
+    await db.Autores.destroy({ where: { id } });
     return { status: 200, resposta: { mensagem: 'Autor deletado com sucesso.' } };
   } catch (error) {
     return { status: 500, resposta: { mensagem: 'Autor não deletado.' } };

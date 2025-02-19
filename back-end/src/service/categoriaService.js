@@ -49,7 +49,7 @@ const delCategoria = async (id) => {
     return { status: 404, resposta: { mensagem: 'Categoria não encontrada.' } };
   }
   try {
-    await db.Categorias.destroy({ where: { idCategoria: id } });
+    await db.Categorias.destroy({ where: { id } });
     return { status: 200, resposta: { mensagem: 'Categoria deletada com sucesso.' } };    
   } catch (error) {
     return { status: 500, resposta: { mensagem: 'Categoria não deletada.' } };
