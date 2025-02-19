@@ -77,15 +77,14 @@ const atlizLivro = async (id, obj) => {
   }
   const [atualizado] = await db.Livros.update({ ...obj }, {
     where: {
-      idLivro: id
+      id
     }
   });
   if (atualizado) {
-    const livro = await procuraLivroPorId(id);
-    return { status: 200, resposta: livro.resposta };
+    return { status: 200, resposta: {...livroValido.dataValues, ...obj} };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204 };
 };
 
 const criaLivro = async (obj) => {
@@ -104,20 +103,24 @@ const delLivro = async (id) => {
   if (!livroValido) {
     return { status: 404, resposta: { mensagem: 'Livro não encontrado.' } };
   }
-  await db.Livros.destroy({ where: { idLivro: id } });
-  return { status: 200, resposta: { mensagem: 'Livro deletado com sucesso.' } };
+  try {
+    await db.Livros.destroy({ where: { id } });
+    return { status: 200, resposta: { mensagem: 'Livro deletado com sucesso.' } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Livro não deletado.' } };
+  }
 };
 
 const atlizLido = async (id, nota) => {
   const livro = await db.Livros.findByPk(id);
   if (!livro) {
-    return { status: 404, resposta: { mensageErro: 'Livro não encontrado.' } };
+    return { status: 404, resposta: { mensage: 'Livro não encontrado.' } };
   }
 
   const [atualizado] = await db.Livros.update({ lido: 1, nota }, { where : { id_livro: id } });
 
   if(!atualizado) {
-    return { status: 200, resposta: { mensageErro: 'Nada para ser atualizado.' } };
+    return { status: 200, resposta: { mensage: 'Nada para ser atualizado.' } };
   }
 
   const livroAtualizado = await db.Livros.findByPk(id);
