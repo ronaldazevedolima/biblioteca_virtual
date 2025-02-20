@@ -1,46 +1,63 @@
 const db = require('../models');
 
 const tdsUsrs = async () => {
-  const listaUsuarios = await db.Usuarios.findAll();
-  const filtroDados = listaUsuarios.map((el) =>{
-    const { senha, ...infoASerRetornada } = el.dataValues;
-    return infoASerRetornada;
+  const listaUsuarios = await db.Usuarios.findAll({
+    attributes: { exclude: [ 'senha'] }
   });
-  return { status: 200, resposta: filtroDados };
+
+  return { status: 200, resposta: listaUsuarios };
 };
 
 const usrId = async (id) => {
-  const usrInfo = await db.Usuarios.findByPk(id);
-  const { senha, ...usuario} = usrInfo.dataValues;
+  const usuario = await db.Usuarios.findByPk(id, {
+    attributes: { exclude: [ 'senha'] }
+  });
+  if (!usuario) {
+    return { status: 404, resposta: {mensagem: 'Usuário não encontrado.'} };
+
+  }
   return { status: 200, resposta: usuario };
 };
 
 const atlzClassficacao = async (id, classificacao) => {
+  const usuario = await db.Usuarios.findByPk(id);
+  if (!usuario) {
+    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
+  }
   const [atualizado] = await db.Usuarios.update({ classificacao: classificacao }, {
     where: {
-      idUsuario: id
+      id
     }
   });
   if (atualizado) {
     return { status: 200, resposta: { mensagem: `Classificação atualizada para "${classificacao}" com sucesso.` } };
   }
 
-  return { status: 200, resposta: { mensagem: `Usuário já passui a classificação "${classificacao}".` } };
+  return { status: 208, resposta: { mensagem: `Usuário já passui a classificação "${classificacao}".` } };
 };
 
-const atlizUsuario = async (id, obj) => {
-  const { classificacao, ...newObj } = obj;
+const atlizUsuario = async (id, modificacoes) => {
+  const usrParaAtualizar = await db.Usuarios.findByPk(id, {
+    attributes: { exclude: [ 'senha'] }
+  });
+
+  if (!usrParaAtualizar) {
+    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
+  }
+
+  const { classificacao, ...newObj } = modificacoes;
   const [atualizado] = await db.Usuarios.update({ ...newObj }, {
     where: {
-      idUsuario: id
+      id
     }
   });
   if (atualizado) {
-    const usr = await usrId(id);
-    return { status: 200, resposta: usr.resposta };
+    const resultado = {...usrParaAtualizar.get(), ...modificacoes};
+    delete resultado.senha;
+    return { status: 200, resposta: resultado };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204 };
 };
 
 const criaUsr = async (obj) => {
@@ -60,8 +77,13 @@ const delUsr = async (id) => {
   if (!usuario) {
     return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
   }
-  await db.Usuarios.destroy({ where: { idUsuario: id } });
-  return { status: 200, resposta: { mensagem: 'Usuário deletado com sucesso.' } };
+  try {
+    await db.Usuarios.destroy({ where: { id } });
+    return { status: 200, resposta: { mensagem: 'Usuário deletado com sucesso.' } };
+    
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Usuário não deletado.' } };
+  }
 };
 
 
