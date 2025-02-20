@@ -132,6 +132,21 @@
  *                 value:
  *                   - id: 1
  *                     nome: "Martins Fontes"
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Editora não encontrada.
  *         content:
@@ -210,6 +225,10 @@
  *                 summary: Um campo deve ter no minimo X caracteres.
  *                 value:
  *                   message: "O 'campo' ter no minimo 4 caracteres"
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Editora não encontrada.
  *         content:
@@ -243,6 +262,21 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Editora deletada com sucesso."
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Editora não encontrada.
  *         content:
