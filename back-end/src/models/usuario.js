@@ -2,7 +2,7 @@ const Usuarios = (sequelize, DataTypes) => {
   const criaUsuario = sequelize.define(
     'Usuarios',
     {
-      idUsuario: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
