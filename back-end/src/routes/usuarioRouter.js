@@ -12,8 +12,10 @@ usuarioRouter.get('/:id', userController.usrId);
 
 usuarioRouter.post('/',validaUsrInfo , userController.criaUsr);
 
+// validação de acesso de admim ou prorpio id
 usuarioRouter.put('/:id',validaUsrInfo, userController.atlizUsuario);
 
+// validação de acesso só admim
 usuarioRouter.patch('/:id',validaClassificacao, userController.atlzClassficacao);
 
 usuarioRouter.delete('/:id', userController.delUsr);

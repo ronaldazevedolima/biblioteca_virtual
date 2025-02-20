@@ -24,7 +24,7 @@ const checaElementosPorId = async (models, entradas) => {
   return buscaIndexElementoNull;
 };
 
-const criaEntradasVerificarId = (req) => Object.entries(req.body).filter((e) => e[0].includes('id') && !e[0].includes('lido'));
+const criaEntradasVerificarId = (body) => Object.entries(body).filter((e) => e[0].includes('id') && !e[0].includes('lido'));
 
 const acessaPropriedade = (e, string) => {
   return e.dataValues[string].dataValues.nome;
@@ -32,8 +32,9 @@ const acessaPropriedade = (e, string) => {
 
 const formataLivrosRotasTenhoLido = (listaLivros) => {
   const resultado = listaLivros.map((e) => {
-    const {nome, tenho} = e.dataValues;
+    const {id, nome, tenho} = e.dataValues;
     const livroEditado = {
+      id,
       nome,
       tenho,
       autor: acessaPropriedade(e, 'autor'),

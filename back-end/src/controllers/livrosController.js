@@ -19,7 +19,7 @@ const criaLivro = async (req, res) => {
 
 const atlzLivro = async (req, res) => {
   const { id } = req.params;
-  const { status, resposta } = await livroService.atlzLivro(id, req.body);
+  const { status, resposta } = await livroService.atlizLivro(id, req.body);
   res.status(status).json(resposta);
 };
 

@@ -1,4 +1,5 @@
 const express = require('express');
+const setupSwagger = require('../sawggerConfig.js');
 
 const {
   autorRouter,
@@ -11,6 +12,7 @@ const {
 
 const app = express();
 app.use(express.json());
+setupSwagger(app);
 
 app.get('/', (_,res) => {
   res.json({ message: 'Biblioteca virtual no ar!'});

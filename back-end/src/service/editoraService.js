@@ -8,16 +8,16 @@ const tdsEditoras = async () => {
 const editoraPorId = async (id) => {
   const editora = await db.Editoras.findByPk(id);
   if (!editora) {
-    return { status: 404, resposta: { erro: 'Editora não encontrada' } };
+    return { status: 404, resposta: { mensagem: 'Editora não encontrada.' } };
   }
   return { status: 200, resposta: editora };
 };
 
 const criaEditora = async (obj) => {
-  const { nomeEditora } = obj;
-  const editoraValida = await db.Editoras.findAll({ where: { nomeEditora } });
+  const { nome } = obj;
+  const editoraValida = await db.Editoras.findAll({ where: { nome } });
   if (editoraValida.length !== 0) {
-    return { status: 400, resposta: { erro: 'Editora já cadastrada' } };
+    return { status: 409, resposta: { mensagem: 'Editora já cadastradano banco de dados.' } };
   }
   const novaEditora = await db.Editoras.create(obj);
   return { status: 201, resposta: novaEditora };
@@ -26,12 +26,12 @@ const criaEditora = async (obj) => {
 const atlzEditora = async (id, obj) => {
   const editoraValida = await db.Editoras.findByPk(id);
   if (!editoraValida) {
-    return { status: 404, resposta: { erro: 'Editora não encontrada' } };
+    return { status: 404, resposta: { mensagem: 'Editora não encontrada.' } };
   }
 
   const [atualizada] = await db.Editoras.update({ ...obj }, {
     where: {
-      idEditora: id
+      id
     }
   });
 
@@ -40,16 +40,20 @@ const atlzEditora = async (id, obj) => {
     return { status: 200, resposta: editora.resposta };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204 };
 };
 
 const delEditora = async (id) => {
   const editoraValida = await db.Editoras.findByPk(id);
   if (!editoraValida) {
-    return { status: 404, resposta: { erro: 'Editora não encontrada' } };
+    return { status: 404, resposta: { mensagem: 'Editora não encontrada.' } };
   }
-  await db.Editoras.destroy({ where: { idEditora: id } });
-  return { status: 200, resposta: { mensagem: 'Editora deletada com sucesso.' } };
+  try {
+    await db.Editoras.destroy({ where: { id } });
+    return { status: 204, resposta: { mensagem: 'Editora deletada com sucesso.' } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Editora não deletada.' } };
+  }
 };
     
 module.exports = {

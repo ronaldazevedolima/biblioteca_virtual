@@ -11,12 +11,13 @@ const {
   procuraLivro 
 } = require('../controllers/livrosController');
 
-const { validaLivros, validaExistenciaCampos } = require('../middleware/validaLivros');
+const { validaLivros, validaExistenciaCampos, validaPutLivros } = require('../middleware/validaLivros');
 
 const livrosRouter = Router();
 
-livrosRouter.get('/', tdsLivros);
 
+livrosRouter.get('/', tdsLivros);
+// sem parametros retorna todos os livros
 livrosRouter.get('/search', procuraLivro);
 
 livrosRouter.get('/nao-lidos', livrosNaoLidos);
@@ -27,7 +28,7 @@ livrosRouter.get('/:id', livroPorId);
 
 livrosRouter.post('/', validaLivros, validaExistenciaCampos, criaLivro);
 
-livrosRouter.put('/:id', atlzLivro);
+livrosRouter.put('/:id',validaExistenciaCampos,validaPutLivros, atlzLivro);
 
 livrosRouter.patch('/:id', atlizLido);
 

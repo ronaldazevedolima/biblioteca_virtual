@@ -21,7 +21,7 @@ const atlizAutor = async (id, obj) => {
   }
   const [atualizado] = await db.Autores.update({ ...obj }, {
     where: {
-      idAutor: id
+      id
     }
   });
   if (atualizado) {
@@ -29,7 +29,7 @@ const atlizAutor = async (id, obj) => {
     return { status: 200, resposta: autor.resposta };
   }
 
-  return { status: 200, resposta: { mensagem: 'Nenhuma informação para ser atualizada' } };
+  return { status: 204 };
 };
 
 const criaAutor = async (obj) => {
@@ -47,8 +47,12 @@ const delAutor = async (id) => {
   if (!autorValido) {
     return { status: 404, resposta: { mensagem: 'Autor não encontrado.' } };
   }
-  await db.Autores.destroy({ where: { idAutor: id } });
-  return { status: 200, resposta: { mensagem: 'Autor deletado com sucesso.' } };
+  try {
+    await db.Autores.destroy({ where: { id } });
+    return { status: 200, resposta: { mensagem: 'Autor deletado com sucesso.' } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Autor não deletado.' } };
+  }
 };
 
 module.exports = {
