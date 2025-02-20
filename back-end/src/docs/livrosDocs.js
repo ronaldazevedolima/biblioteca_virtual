@@ -271,6 +271,21 @@
  *                   idEditora:
  *                     type: integer
  *                     example: 1
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Livro não encontrado.
  *         content:
@@ -410,6 +425,10 @@
  *                 summary: Um campo deve ser menor ou igual a X.
  *                 value:
  *                   message: "O 'campo' deve ser menor ou igual a 10"
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Livro não encontrado.
  *         content:
@@ -443,6 +462,21 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Livro deletado com sucesso."
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Livro não encontrado.
  *         content:

@@ -169,6 +169,21 @@
  *                   type: string
  *                   enum: [admin, cliente]
  *                   example: "admin"
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Usuario não encontrado.
  *         content:
@@ -271,6 +286,10 @@
  *                 summary: Um campo deve ser uma string alfanumérica contendo de 6 a 10 caracteres.
  *                 value:
  *                   message: "O campo senha deve ser uma string alfanumérica contendo de 6 a 10 caracteres."
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       204:
  *         description: Nenhuma modificação a ser feita.
  *       404:
@@ -356,6 +375,10 @@
  *                 summary: O campo deve ser admin ou cliente.
  *                 value:
  *                   message: "O campo classificacao deve ser admin ou cliente."
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Usuário não encontrado.
  *         content:
@@ -389,6 +412,21 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuário deletado com sucesso."
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Usuário não encontrado.
  *         content:

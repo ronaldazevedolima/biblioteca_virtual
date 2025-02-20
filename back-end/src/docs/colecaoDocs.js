@@ -158,6 +158,21 @@
  *                   - id: 1
  *                     nome: "Sem Coleção"
  *                     volumes: 1
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Coleção não encontrada.
  *         content:
@@ -252,6 +267,10 @@
  *                 summary: Um campo deve ser maior ou igual a X.
  *                 value:
  *                   message: "O 'campo' deve ser maior ou igual a 1"
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Coleção não encontrada.
  *         content:
@@ -285,6 +304,21 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Coleção deletada com sucesso."
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O id precisa ser um número inteiro"
+ *             examples:
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
  *       404:
  *         description: Coleção não encontrada.
  *         content:

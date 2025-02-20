@@ -2,14 +2,17 @@ const { Router } = require('express');
 
 const { tdsColecoes, colecaoId, criaColecao, atlizColecao, delColecao } = require('../controllers/colecaoController');
 const validaColecao = require('../middleware/validaColecao');
+const { validaId } = require('../middleware/validaId');
 
 const colecaoRouter = Router();
 
 colecaoRouter.get('/', tdsColecoes);
 
-colecaoRouter.get('/:id', colecaoId);
-
 colecaoRouter.post('/', validaColecao, criaColecao);
+
+colecaoRouter.use(validaId);
+
+colecaoRouter.get('/:id', colecaoId);
 
 colecaoRouter.put('/:id', validaColecao, atlizColecao);
 
