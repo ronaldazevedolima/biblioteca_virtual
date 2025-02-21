@@ -3,6 +3,7 @@ const { Router } = require('express');
 const userController = require('../controllers/usuarioController');
 const { validaUsrInfo, validaClassificacao } = require('../middleware/validaUsr');
 const { validaId } = require('../middleware/validaId');
+const { validaLogin } = require('../middleware/validaLogin');
 
 
 const usuarioRouter = Router();
@@ -11,7 +12,10 @@ usuarioRouter.get('/', userController.tdsUsrs);
 
 usuarioRouter.post('/',validaUsrInfo , userController.criaUsr);
 
-usuarioRouter.use(validaId);
+// rota de login
+usuarioRouter.post('/login',validaLogin, userController.efetuarLogin);
+
+usuarioRouter.use('/:id',validaId);
 
 usuarioRouter.get('/:id', userController.usrId);
 
