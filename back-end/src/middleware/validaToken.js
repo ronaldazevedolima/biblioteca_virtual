@@ -1,7 +1,7 @@
 const { verificarToken } = require('../utilidades/tokenUtils');
 
 const validaToken = async (req, res, next) => {
-  const { authorization } = req.headres;
+  const { authorization } = req.headers;
 
   if (!authorization) {
     return res.status(401).json({ mensagem: 'Token de autenticação não fornecido.' });
@@ -24,13 +24,24 @@ const validaAdmin = (req, res, next) => {
   const { classificacao } = req.user;
   
   if (classificacao !== 'admin') {
-    return res.status(403).json({ mensagem: 'Acesso negado, area restrita para adiministradores.' });
+    return res.status(403).json({ mensagem: 'Acesso negado, área restrita para adiministradores.' });
   }
 
   return next();
 };
 
+const validaAcesso = (req, res, next) => {
+  const { id: idUser, classificacao } = req.user;
+  const { id: idRota } = req.params;
+
+  if (idUser !== +idRota && classificacao !== 'admin') {
+    return res.status(403).json({ mensagem: 'Acesso negado.' });
+  }
+  return next();
+};
+
 module.exports = {
   validaToken,
-  validaAdmin
+  validaAdmin,
+  validaAcesso
 };
