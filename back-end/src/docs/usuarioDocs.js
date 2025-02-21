@@ -40,6 +40,25 @@
  *                     nome: "Lorena"
  *                     email: "lorena@lorena.com"
  *                     classificacao: "cliente"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *   post:
  *     tags:
  *       - Usuarios
@@ -78,18 +97,9 @@
  *             schema:
  *               type: object
  *               properties:
- *                 id:
- *                   type: integer
- *                   example: 3
- *                 nome:
+ *                 token:
  *                   type: string
- *                   example: "Aryadne"
- *                 email:
- *                   type: string
- *                   example: "aryadne@aryadne.com"
- *                 classificacao:
- *                   type: string
- *                   example: "cliente"
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6IkFyeWFkbmUiLCJlbWFpbCI6ImFyeWFkbWVAYXJ5YWRuZS5hb20iLCJzZW5oYSI6IiQyYiQxMCR2SFk3aWJIOEJGSHU2eWp6VkFfc2kubWN5UHBBNlFsSzdob3NETmM0cHlzQVRtOUd4VXNrbSIsImNsYXNzvWZpY2FjYW8iOiJjbGllbnRlIiwiaWF0IjoxNzQwMTY4MTYwfQ.xfszPHVtWj7JjkfwCTR6hYaNz4ZXq7EjCiiL_DtZfSw
  *       400:
  *         description: Problema com a requisição.
  *         content:
@@ -135,7 +145,7 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuario já existente no banco de dados."
- * usuarios/{id}:
+ * /usuarios/{id}:
  *   get:
  *     tags:
  *       - Usuarios
@@ -184,6 +194,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Usuario não encontrado.
  *         content:
@@ -292,6 +321,35 @@
  *                   message: "O id precisa ser um número inteiro"
  *       204:
  *         description: Nenhuma modificação a ser feita.
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
+ *       403:
+ *         description: Acesso não autorizado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Acesso negado."
  *       404:
  *         description: Usuário não encontrado.
  *         content:
@@ -379,6 +437,16 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       403:
+ *         description: Acesso restrito para admin.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Acesso negado, área restrita para adiministradores."
  *       404:
  *         description: Usuário não encontrado.
  *         content:
@@ -427,6 +495,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Usuário não encontrado.
  *         content:
