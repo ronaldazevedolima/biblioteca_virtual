@@ -47,8 +47,18 @@ const atlizUsuario = async (id, modificacoes) => {
     return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
   }
 
-  const { classificacao, ...newObj } = modificacoes;
-  const [atualizado] = await db.Usuarios.update({ ...newObj }, {
+  delete modificacoes.classificacao;
+
+  const { senha } = modificacoes;
+  
+  let newUserInf = modificacoes;
+  
+  if (senha) { 
+    const cripto = await hashSenha(senha);
+    newUserInf = {...newUserInf, senha: cripto };
+  }
+
+  const [atualizado] = await db.Usuarios.update({ ...newUserInf }, {
     where: {
       id
     }
