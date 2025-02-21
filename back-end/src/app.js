@@ -1,5 +1,5 @@
 const express = require('express');
-const setupSwagger = require('../sawggerConfig.js');
+const setupSwagger = require('../swaggerConfig.js');
 
 const {
   autorRouter,
