@@ -10,7 +10,7 @@ colecaoRouter.get('/', tdsColecoes);
 
 colecaoRouter.post('/', validaColecao, criaColecao);
 
-colecaoRouter.use(validaId);
+colecaoRouter.use('/:id', validaId);
 
 colecaoRouter.get('/:id', colecaoId);
 

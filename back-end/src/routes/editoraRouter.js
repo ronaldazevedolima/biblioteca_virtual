@@ -10,7 +10,7 @@ editoraRouter.get('/', tdsEditoras);
 
 editoraRouter.post('/', validaEditora, criaEditora);
 
-editoraRouter.use(validaId);
+editoraRouter.use('/:id', validaId);
 
 editoraRouter.get('/:id', editoraPorId);
 

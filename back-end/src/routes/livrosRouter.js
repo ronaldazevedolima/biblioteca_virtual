@@ -27,7 +27,7 @@ livrosRouter.get('/nao-tenho', livrosNaoTenho);
 
 livrosRouter.post('/', validaLivros, validaExistenciaCampos, criaLivro);
 
-livrosRouter.use(validaId);
+livrosRouter.use('/:id', validaId);
 
 livrosRouter.get('/:id', livroPorId);
 

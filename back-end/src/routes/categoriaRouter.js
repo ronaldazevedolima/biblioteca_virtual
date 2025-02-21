@@ -10,7 +10,7 @@ categoriaRouter.get('/', tdsCategorias);
 
 categoriaRouter.post('/', validaCategoria, criaCategoria);
 
-categoriaRouter.use(validaId);
+categoriaRouter.use('/:id', validaId);
 
 categoriaRouter.get('/:id', categoriaId);
 

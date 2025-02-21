@@ -10,7 +10,7 @@ autorRouter.get('/', tdsAutores);
 
 autorRouter.post('/', validaAutor, criaAutor);
 
-autorRouter.use(validaId);
+autorRouter.use('/:id', validaId);
 
 autorRouter.get('/:id', autorId);
 
