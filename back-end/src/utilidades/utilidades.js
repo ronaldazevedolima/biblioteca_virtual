@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const saltos = 10;
+const saltos = process.env.SALTOS;
 
 const hashSenha = async (senha) => {
   const senhaCripto = await bcrypt.hash(senha, saltos);
