@@ -13,6 +13,7 @@ const {
 
 const { validaId } = require('../middleware/validaId');
 const { validaLivros, validaExistenciaCampos, validaPutLivros } = require('../middleware/validaLivros');
+const { validaToken } = require('../middleware/validaToken');
 
 const livrosRouter = Router();
 
@@ -25,9 +26,11 @@ livrosRouter.get('/nao-lidos', livrosNaoLidos);
 
 livrosRouter.get('/nao-tenho', livrosNaoTenho);
 
+livrosRouter.use(validaToken);
+
 livrosRouter.post('/', validaLivros, validaExistenciaCampos, criaLivro);
 
-livrosRouter.use(validaId);
+livrosRouter.use('/:id', validaId);
 
 livrosRouter.get('/:id', livroPorId);
 

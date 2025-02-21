@@ -37,6 +37,12 @@ const delUsr = async (req, res) => {
   return res.status(status).json(resposta);
 };
 
+const efetuarLogin = async (req, res) => {
+  const { email, senha } = req.body;
+  const { status, resposta } = await usurioService.efetuarLogin(email, senha);
+  return res.status(status).json(resposta);
+};
+
 module.exports = {
   tdsUsrs,
   usrId,
@@ -44,4 +50,5 @@ module.exports = {
   atlizUsuario,
   atlzClassficacao,
   delUsr,
+  efetuarLogin
 };

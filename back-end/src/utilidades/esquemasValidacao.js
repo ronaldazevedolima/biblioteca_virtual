@@ -15,6 +15,19 @@ const senhaRegex = '^[a-zA-Z0-9]{6,10}$';
 
 const classificacaoRegex = /^(admin|cliente)$/i;
 
+const esquemaLogin = joi.object({
+  senha: validaRegex(senhaRegex),
+  email: validaEmail
+}).options({
+  messages: {
+    'any.required': 'O campo {{#key}} é obrigatório.',
+    'string.email': 'O campo {{#key}} deve ser no formato "email@email.com".',
+    'string.empty': 'O campo {{#key}} não pode ser vazio',
+    'string.pattern.base':'O campo {{#key}} deve ser uma string alfanumérica contendo de 6 a 10 caracteres.',
+    'string.base': 'O campo {{#key}} deve ser uma string.'
+  }
+});
+
 const esquemaUsuario = joi.object({
   nome: validaString,
   email: validaEmail,
@@ -141,4 +154,5 @@ module.exports = {
   esquemaColecao,
   esquemaEditora,
   esquemaLivros,
+  esquemaLogin
 };

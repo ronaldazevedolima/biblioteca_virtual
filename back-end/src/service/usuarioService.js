@@ -1,4 +1,6 @@
 const db = require('../models');
+const { gerarToken } = require('../utilidades/tokenUtils');
+const { hashSenha, compararSenha } = require('../utilidades/utilidades');
 
 const tdsUsrs = async () => {
   const listaUsuarios = await db.Usuarios.findAll({
@@ -45,8 +47,18 @@ const atlizUsuario = async (id, modificacoes) => {
     return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
   }
 
-  const { classificacao, ...newObj } = modificacoes;
-  const [atualizado] = await db.Usuarios.update({ ...newObj }, {
+  delete modificacoes.classificacao;
+
+  const { senha } = modificacoes;
+  
+  let newUserInf = modificacoes;
+  
+  if (senha) { 
+    const cripto = await hashSenha(senha);
+    newUserInf = {...newUserInf, senha: cripto };
+  }
+
+  const [atualizado] = await db.Usuarios.update({ ...newUserInf }, {
     where: {
       id
     }
@@ -61,15 +73,25 @@ const atlizUsuario = async (id, modificacoes) => {
 };
 
 const criaUsr = async (obj) => {
-  const { email } = obj;
-  const infoUsr = {...obj, classificacao: 'cliente'};
+  const { email, senha } = obj;
+
   const usr = await db.Usuarios.findAll({ where: { email } });
+
   if (usr.length !== 0) {
     return { status: 409, resposta: { mensagem: 'Usuario já existente no banco de dados.'}};
   }
+
+  const cripto = await hashSenha(senha);
+
+  const infoUsr = {...obj, senha: cripto, classificacao: 'cliente'};
+
   const infoUsrCriado = await db.Usuarios.create(infoUsr);
-  const { senha, ...usuarioCriado} = infoUsrCriado.dataValues;
-  return { status: 201, resposta: usuarioCriado };
+
+  delete infoUsrCriado.dataValues.senha;
+
+  const token = gerarToken(infoUsrCriado.dataValues);
+
+  return { status: 201, resposta: { token } };
 };
 
 const delUsr = async (id) => {
@@ -86,6 +108,32 @@ const delUsr = async (id) => {
   }
 };
 
+const efetuarLogin = async (email, senha) => {
+  const usuario = await db.Usuarios.findOne({
+    where: {
+      email
+    }    
+  });
+
+  if (!usuario) {
+    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
+  }
+
+  const senhaValida = await compararSenha(senha, usuario.dataValues.senha);
+
+  if (!senhaValida) {
+    return { status: 401, resposta: { mensagem: 'Senha inválida.' } };
+
+  }
+
+  try {
+    const token = gerarToken(usuario.dataValues);
+    return { status: 200, resposta: { token } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Não foi possível fazer o login.' } };
+  }
+
+};
 
 module.exports = {
   tdsUsrs,
@@ -94,4 +142,5 @@ module.exports = {
   atlizUsuario,
   atlzClassficacao,
   delUsr,
+  efetuarLogin
 };

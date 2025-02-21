@@ -4,15 +4,17 @@ module.exports = {
       'usuarios',
       [
         {
+          // senha 181216
           nome: 'Ronald Lima',
           email: 'ronald@ronald.com',
-          senha: '181216',
+          senha: '$2b$10$vE1QYuWUUUw/oVbH8pEA3uYuYZ1THzJeUekVuUoJlZmTt5JcIIbS2',
           classificacao: 'admin',
         },
         {
+          // senha 181216
           nome: 'Lorena',
           email: 'lorena@lorena.com',
-          senha: '181216',
+          senha: '$2b$10$vE1QYuWUUUw/oVbH8pEA3uYuYZ1THzJeUekVuUoJlZmTt5JcIIbS2',
           classificacao: 'cliente',
         },
       ],

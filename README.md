@@ -39,6 +39,7 @@ MYSQL_HOST=biblioteca_db
 MYSQL_DATABASE=ronald_livros
 PORT=3002
 JWT_SECRET=ronaldBibliotecaVirtual
+SALTOS=10
 ```
 
 #### 3️⃣ Suba os Containers com Docker Compose
@@ -103,6 +104,7 @@ MYSQL_HOST=biblioteca_db
 MYSQL_DATABASE=ronald_livros
 PORT=3002
 JWT_SECRET=ronaldBibliotecaVirtual
+SALTOS=10
 ```
 
 #### 3️⃣ Start the Containers with Docker Compose
