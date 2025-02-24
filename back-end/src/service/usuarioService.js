@@ -120,11 +120,13 @@ const efetuarLogin = async (email, senha) => {
   }
 
   const senhaValida = await compararSenha(senha, usuario.dataValues.senha);
-
+  
   if (!senhaValida) {
     return { status: 401, resposta: { mensagem: 'Senha inválida.' } };
-
+    
   }
+  
+  delete usuario.dataValues.senha;
 
   try {
     const token = gerarToken(usuario.dataValues);

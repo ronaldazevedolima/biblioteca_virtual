@@ -1,15 +1,12 @@
-const JWT = require('jsonwebtoken');
+const  { sign, verify } = require('jsonwebtoken');
 
 const jwtSecret = process.env.JWT_SECRET;
 
-const gerarToken = (dados) => {
-  const token = JWT.sign(dados, jwtSecret);
-  return token;
-};
+const gerarToken = (dados) => sign(dados, jwtSecret);
 
 const verificarToken = (token) => {
   try {
-    const InfoDecodificada = JWT.verify(token, jwtSecret);
+    const InfoDecodificada = verify(token, jwtSecret);
     return InfoDecodificada;
   } catch (error) {
     return undefined;

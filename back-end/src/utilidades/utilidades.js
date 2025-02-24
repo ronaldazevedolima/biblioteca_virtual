@@ -1,16 +1,10 @@
-const bcrypt = require('bcryptjs');
+const { hash, compare } = require('bcryptjs');
 
 const saltos = process.env.SALTOS;
 
-const hashSenha = async (senha) => {
-  const senhaCripto = await bcrypt.hash(senha, saltos);
-  return senhaCripto;
-};
+const hashSenha = async (senha) => hash(senha, saltos);
 
-const compararSenha = async (senha, senhaDb) => {
-  const comparacao = await bcrypt.compare(senha, senhaDb);
-  return comparacao;
-};
+const compararSenha = async (senha, senhaDb) => compare(senha, senhaDb);
 
 const objNomeModel = {
   'autor': 'Autores',
