@@ -1,3 +1,11 @@
+const { hash, compare } = require('bcryptjs');
+
+const saltos = process.env.SALTOS;
+
+const hashSenha = async (senha) => hash(senha, saltos);
+
+const compararSenha = async (senha, senhaDb) => compare(senha, senhaDb);
+
 const objNomeModel = {
   'autor': 'Autores',
   'categoria': 'Categorias',
@@ -66,4 +74,6 @@ module.exports = {
   criaEntradasVerificarId,
   formataEntradaModel,
   defineNomeModel,
+  hashSenha,
+  compararSenha,
 };

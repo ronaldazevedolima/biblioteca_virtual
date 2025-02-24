@@ -203,6 +203,25 @@
  *                 summary: Um campo deve ser menor ou igual a X.
  *                 value:
  *                   message: "O 'campo' deve ser menor ou igual a 10"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Algum campo chave estrangeira inexistente na tabela de origem.
  *         content:
@@ -286,6 +305,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Livro não encontrado.
  *         content:
@@ -429,6 +467,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Livro não encontrado.
  *         content:
@@ -477,6 +534,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Livro não encontrado.
  *         content:

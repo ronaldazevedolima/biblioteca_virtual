@@ -90,6 +90,25 @@
  *                 summary: Um campo deve ter no minimo X caracteres.
  *                 value:
  *                   message: "O 'campo' ter no minimo 4 caracteres"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       409:
  *         description: Editora ja cadastrada no banco de dados.
  *         content:
@@ -147,6 +166,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Editora não encontrada.
  *         content:
@@ -229,6 +267,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Editora não encontrada.
  *         content:
@@ -277,6 +334,25 @@
  *                 summary: O id precisa ser um número inteiro.
  *                 value:
  *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
  *       404:
  *         description: Editora não encontrada.
  *         content:
