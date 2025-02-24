@@ -99,7 +99,7 @@
  *               properties:
  *                 token:
  *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6IkFyeWFkbmUiLCJlbWFpbCI6ImFyeWFkbWVAYXJ5YWRuZS5hb20iLCJzZW5oYSI6IiQyYiQxMCR2SFk3aWJIOEJGSHU2eWp6VkFfc2kubWN5UHBBNlFsSzdob3NETmM0cHlzQVRtOUd4VXNrbSIsImNsYXNzvWZpY2FjYW8iOiJjbGllbnRlIiwiaWF0IjoxNzQwMTY4MTYwfQ.xfszPHVtWj7JjkfwCTR6hYaNz4ZXq7EjCiiL_DtZfSw
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  *       400:
  *         description: Problema com a requisição.
  *         content:
@@ -534,4 +534,99 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuário não deletado."
+ * /usuarios/login:
+ *   post:
+ *     tags:
+ *       - Usuarios
+ *     summary: Efetua login do usuário.
+ *     description: Autentica o usuário com email e senha, retornando um token JWT em caso de sucesso.
+ *  requestBody:
+ *      required: true
+ *       content:
+ *        application/json:
+ *          schema:
+ *           type: object
+ *            required:
+ *              - email
+ *              - senha
+ *            properties:
+ *              email:
+ *                type: string
+ *                format: email
+ *                example: "usuario@email.com"
+ *              senha:
+ *                type: string
+ *                example: "123456"
+ *    responses:
+ *      200:
+ *        description: Login realizado com sucesso. Retorna um token JWT.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *               token:
+ *                  type: string
+ *                  example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O campo classificacao é obrigatório."
+ *             examples:
+ *               CampoObrigatorio:
+ *                 summary: O campo obrigatório está faltando.
+ *                 value:
+ *                   message: "O 'campo' é obrigátorio."
+ *               CampoVazio:
+ *                 summary: O campo está vazio.
+ *                 value:
+ *                   message: "O 'campo' não pode estar vazio."
+ *               CampoString:
+ *                 summary: O campo deve ser uma string.
+ *                 value:
+ *                   message: "O 'campo' deve ser uma string"
+ *               CampoFormatoEmail:
+ *                 summary: Um campo deve ser no formato email@email.com.
+ *                 value:
+ *                   message: "O campo {{#key}} deve ser no formato 'email@email.com'."
+ *               CampoFormatoSenha:
+ *                 summary: Um campo deve ser uma string alfanumérica contendo de 6 a 10 caracteres.
+ *                 value:
+ *                   message: "O campo {{#key}} deve ser uma string alfanumérica contendo de 6 a 10 caracteres."
+ *      401:
+ *        description: Senha inválida.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                mensagem:
+ *                  type: string
+ *                  example: "Senha inválida."
+ *      404:
+ *        description: Usuário não encontrado.
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                mensagem:
+ *                  type: string
+ *                  example: "Usuário não encontrado."
+ *      500:
+ *        description: Erro interno no servidor.
+ *        content:
+ *          application/json:
+ *            schema:
+ *             type: object
+ *              properties:
+ *                mensagem:
+ *                  type: string
+ *                  example: "Não foi possível fazer o login."
  */
