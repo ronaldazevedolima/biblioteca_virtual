@@ -31,6 +31,16 @@
  *                     nome: "Ficção histórica"
  *                   - id: 3
  *                     nome: "Ficção científica"
+ *       500:
+ *         description: Erro ao buscar todas as categorias.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todas as categorias."
  *   post:
  *     tags:
  *       - Categorias
@@ -119,6 +129,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Categoria já cadastrado no banco de dados."
+ *       500:
+ *         description: Erro ao criar categoria.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar categoria."
  * categorias/{id}:
  *   get:
  *     tags:
@@ -190,6 +210,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Categoria não encontrada."
+ *       500:
+ *         description: Erro ao buscar por categoria.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por categoria."
  *   put:
  *     tags:
  *       - Categorias
@@ -291,6 +321,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Categoria não encontrada."
+ *       500:
+ *         description: Erro ao atualizar categoria.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar categoria."
  *   delete:
  *     tags:
  *       - Categorias
@@ -359,7 +399,7 @@
  *                   type: string
  *                   example: "Categoria não encontrada."
  *       500:
- *         description: Categoria não deletada.
+ *         description: Erro ao deletar categoria.
  *         content:
  *           application/json:
  *             schema:
@@ -367,5 +407,5 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Categoria não deletada."
+ *                   example: "Erro ao deletar categoria."
  */
