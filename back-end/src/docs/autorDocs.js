@@ -37,6 +37,16 @@
  *                   - id: 3
  *                     nome: "Christian Jacq"
  *                     nomeCompleto: "Christian Jacq"
+ *       500:
+ *         description: Erro ao buscar todos os autores.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todos os autores."
  *   post:
  *     tags:
  *       - Autores
@@ -133,6 +143,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Autor já cadastrado no banco de dados."
+ *       500:
+ *         description: Erro ao criar autor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar autor."
  * /autores/{id}:
  *   get:
  *     tags:
@@ -207,6 +227,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Autor não encontrado."
+ *       500:
+ *         description: Erro ao buscar por autor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por autor."
  *   put:
  *     tags:
  *       - Autores
@@ -316,6 +346,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Autor não encontrado."
+ *       500:
+ *         description: Erro ao atualizar autor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar autor."
  *   delete:
  *     tags:
  *       - Autores
@@ -384,7 +424,7 @@
  *                   type: string
  *                   example: "Autor não encontrado."
  *       500:
- *         description: Autor não deletado.
+ *         description: Erro ao deletar autor.
  *         content:
  *           application/json:
  *             schema:
@@ -392,5 +432,5 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Autor não deletado."
+ *                   example: "Erro ao deletar autor."
  */
