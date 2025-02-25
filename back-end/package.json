@@ -11,7 +11,9 @@
     "seed": "npx sequelize-cli db:seed:all $",
     "restart:db": "npm run drop && npm run create && npm run migrate && npm run seed",
     "start": "node src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/tests/**/** --exit",
+    "test:unitario": "mocha src/tests/unitarios --recursive --exit",
+    "test:integracao": "mocha src/tests/integracao --recursive --exit"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +30,13 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "chai": "^4.5.0",
     "eslint": "^7.7.0",
+    "jest": "^26.0.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.4",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "sinon": "^17.0.1",
+    "sinon-chai": "^3.7.0"
   }
 }
