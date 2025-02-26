@@ -31,6 +31,16 @@
  *                     nome: "Leya"
  *                   - id: 3
  *                     nome: "Record"
+ *       500:
+ *         description: Erro ao buscar todas as editoras.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todas as editoras."
  *   post:
  *     tags:
  *       - Editoras
@@ -119,6 +129,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Editora já cadastrado no banco de dados."
+ *       500:
+ *         description: Erro ao criar editora.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar editora."
  * editoras/{id}:
  *   get:
  *     tags:
@@ -195,6 +215,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Editora não encontrada."
+ *       500:
+ *         description: Erro ao buscar por editora.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por editora."
  *   put:
  *     tags:
  *       - Editoras
@@ -296,6 +326,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Editora não encontrada."
+ *       500:
+ *         description: Erro ao atualizar editora.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar editora."
  *   delete:
  *     tags:
  *       - Editoras
@@ -364,7 +404,7 @@
  *                   type: string
  *                   example: "Editora não encontrada."
  *       500:
- *         description: Editora não deletada.
+ *         description: Erro ao deletar editora.
  *         content:
  *           application/json:
  *             schema:
@@ -372,5 +412,5 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Editora não deletada."
+ *                   example: "Erro ao deletar editora."
  */
