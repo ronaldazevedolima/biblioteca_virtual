@@ -12,18 +12,18 @@ const {
 } = require('../../../service/colecaoService');
 
 const {
-listaTodasColecoesRetornoDB,
-listaTodasColecoesRetornoService,
-colecoesRetornoDb,
-colecoesRetornoService,
-criaColecoesRetornoDB,
-atualizaColecoesRetornoService
+  listaTodasColecoesRetornoDB,
+  listaTodasColecoesRetornoService,
+  colecoesRetornoDb,
+  colecoesRetornoService,
+  criaColecoesRetornoDB,
+  atualizaColecoesRetornoService
 } = require('../../mocks/colecoesMocks');
 
 chai.use(sinonChai);
 const { expect } = chai;
 
-describe.only('Testa Service de coleções', () => {
+describe('Testa Service de coleções', () => {
   beforeEach(() => sinon.restore());
 
   describe('Testa função de buscar todas as coleções', () => {
