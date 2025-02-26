@@ -37,6 +37,16 @@
  *                   - id: 3
  *                     nome: "O Conquistador"
  *                     volumes: 5
+ *       500:
+ *         description: Erro ao buscar todas as coleções.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todas as coleções."
  *   post:
  *     tags:
  *       - Coleções
@@ -141,6 +151,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Coleção já cadastrado no banco de dados."
+ *       500:
+ *         description: Erro ao criar coleção.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar coleção."
  * colecoes/{id}:
  *   get:
  *     tags:
@@ -221,6 +241,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Coleção não encontrada."
+ *       500:
+ *         description: Erro ao buscar por coleção.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por coleção."
  *   put:
  *     tags:
  *       - Coleções
@@ -338,6 +368,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Coleção não encontrada."
+ *       500:
+ *         description: Erro ao atualizar coleção.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar coleção."
  *   delete:
  *     tags:
  *       - Coleções
@@ -406,7 +446,7 @@
  *                   type: string
  *                   example: "Coleção não encontrada."
  *       500:
- *         description: Coleção não deletada.
+ *         description: Erro ao deletar coleção.
  *         content:
  *           application/json:
  *             schema:
@@ -414,5 +454,5 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Coleção não deletada."
+ *                   example: "Erro ao deletar coleção."
  */
