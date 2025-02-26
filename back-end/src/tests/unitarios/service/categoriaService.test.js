@@ -23,7 +23,7 @@ const {
 chai.use(sinonChai);
 const { expect } = chai;
 
-describe.only('Testa Service de categorias', () => {
+describe('Testa Service de categorias', () => {
   beforeEach(() => sinon.restore());
 
   describe('Testa função de buscar todas as categorias', () => {
@@ -125,7 +125,7 @@ describe.only('Testa Service de categorias', () => {
       expect(Object.keys(resultado).length).to.be.equal(1);
     });
   
-    it('Deve retornar status 404 se o autor não for encontrado', async () => {
+    it('Deve retornar status 404 se a categoria não for encontrada', async () => {
       const stubBypk = sinon.stub(Categorias, 'findByPk').resolves(undefined);
   
       const id = 100;
@@ -181,11 +181,11 @@ describe.only('Testa Service de categorias', () => {
     it('Deve retornar status 409 se a categoria já existir', async () => {
       sinon.stub(Categorias, 'findAll').resolves([1]);
   
-      const novoCategoria = {
+      const novaCategoria = {
         nome: 'Romance',
       };
   
-      const resultado = await criaCategoria(novoCategoria);
+      const resultado = await criaCategoria(novaCategoria);
   
       expect(resultado).to.be.an('object');
       expect(resultado.status).to.equal(409);
@@ -211,7 +211,7 @@ describe.only('Testa Service de categorias', () => {
       sinon.stub(Categorias, 'create').throws('Erro no banco');
   
       const novaCategoria = {
-        nome: 'Isaac Asimov',
+        nome: 'Romance',
       };
   
       const resultado = await criaCategoria(novaCategoria);
