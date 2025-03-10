@@ -6,7 +6,7 @@ const JWT = require('jsonwebtoken');
 const { verificarToken } = require('../../../utilidades/tokenUtils');
 const { retornoVerificaToken } = require('../../mocks/usuariosMock');
 
-describe.only('Testa função de verificar token', () => {
+describe('Testa função de verificar token', () => {
   afterEach(() => sinon.restore());
   
   it('Deve retornar as informações do usuario quando token for válido', async () => {
