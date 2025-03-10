@@ -70,11 +70,22 @@ const retornologinDB = {
   }
 };
 
+
+const retornoVerificaToken =  {
+  id: 1,
+  nome: 'Ronald Lima',
+  email: 'ronald@ronald.com',
+  classificacao: 'admin',
+  iat: 1455812089
+};
+
+
 module.exports = {
   listaTodosUsuariosDB,
   usuarioPorIdDb,
   listaTodosUsuariosService,
   retornoAtualizaUserService,
   usuarioCriadoDb,
-  retornologinDB
+  retornologinDB,
+  retornoVerificaToken
 };
