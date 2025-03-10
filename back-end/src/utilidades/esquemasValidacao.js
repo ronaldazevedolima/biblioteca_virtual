@@ -3,6 +3,7 @@ const joi = require('joi');
 const validaString = joi.string().min(4).required();
 const validaNumeroPut = joi.number().integer().min(1).strict();
 const validaNumero = joi.number().integer().min(1).required().strict();
+const validaNota = joi.number().integer().min(0).max(10).required().strict();
 const validaRegex = (regex) => {
   return joi.string()
     .required()
@@ -107,7 +108,7 @@ const esquemaLivros = joi.object({
   idAutor: validaNumero,
   tenho: joi.valid(0, 1).required(),
   lido: joi.valid(0, 1).required(),
-  nota: joi.number().integer().min(1).max(10).required().strict(),
+  nota: validaNota,
   idCategoria: validaNumero,
   idEditora: validaNumero, 
 }).options({
@@ -130,7 +131,7 @@ const esquemaPutLivros = joi.object({
   idAutor: validaNumeroPut,
   tenho: joi.valid(0, 1),
   lido: joi.valid(0, 1),
-  nota: joi.number().integer().min(1).max(10).strict(),
+  nota: joi.number().integer().min(0).max(10).strict(),
   idCategoria: validaNumeroPut,
   idEditora: validaNumeroPut, 
 }).options({
@@ -145,6 +146,17 @@ const esquemaPutLivros = joi.object({
   }
 });
 
+const esquemaPatchLivrosLido = joi.object({
+  nota: validaNota,
+}).options({
+  messages:{
+    'any.required': 'O campo {{#key}} é obrigatório.',
+    'number.min': 'O campo {{#key}} deve ser igual ou maior que {{#limit}}.',
+    'number.max': 'O campo {{#key}} deve ser igual o menor que {{#limit}}.',
+    'number.base': 'O campo {{#key}} deve ser um numero.',
+  }
+});
+
 module.exports = {
   esquemaUsuario,
   esquemaPutLivros,
@@ -154,5 +166,6 @@ module.exports = {
   esquemaColecao,
   esquemaEditora,
   esquemaLivros,
-  esquemaLogin
+  esquemaLogin,
+  esquemaPatchLivrosLido
 };

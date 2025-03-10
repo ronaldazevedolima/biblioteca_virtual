@@ -12,7 +12,7 @@ const {
 } = require('../controllers/livrosController');
 
 const { validaId } = require('../middleware/validaId');
-const { validaLivros, validaExistenciaCampos, validaPutLivros } = require('../middleware/validaLivros');
+const { validaLivros, validaExistenciaCampos, validaPutLivros, validapatchLivrosLido } = require('../middleware/validaLivros');
 const { validaToken } = require('../middleware/validaToken');
 
 const livrosRouter = Router();
@@ -34,10 +34,9 @@ livrosRouter.use('/:id', validaId);
 
 livrosRouter.get('/:id', livroPorId);
 
-livrosRouter.put('/:id', atlzLivro);
 livrosRouter.put('/:id',validaExistenciaCampos,validaPutLivros, atlzLivro);
 
-livrosRouter.patch('/:id', atlizLido);
+livrosRouter.patch('/:id',validapatchLivrosLido, atlizLido);
 
 livrosRouter.delete('/:id', delLivro);
 

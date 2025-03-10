@@ -1,4 +1,4 @@
-const { esquemaLivros, esquemaPutLivros } = require('../utilidades/esquemasValidacao');
+const { esquemaLivros, esquemaPutLivros, esquemaPatchLivrosLido } = require('../utilidades/esquemasValidacao');
 const { defineNomeModel, checaElementosPorId, formataEntradaModel, criaEntradasVerificarId } = require('../utilidades/utilidades');
 const models = require('../models');
 
@@ -13,6 +13,15 @@ const validaLivros = (req, res, next) => {
 
 const validaPutLivros = (req, res, next) => {
   const validaEntrada = esquemaPutLivros.validate(req.body);
+  if (validaEntrada.error) {
+    return res.status(400).json({ mensagem: validaEntrada.error.details[0].message });
+  }
+    
+  return next();
+};
+
+const validapatchLivrosLido = (req, res, next) => {
+  const validaEntrada = esquemaPatchLivrosLido.validate(req.body);
   if (validaEntrada.error) {
     return res.status(400).json({ mensagem: validaEntrada.error.details[0].message });
   }
@@ -41,4 +50,5 @@ module.exports = {
   validaLivros,
   validaPutLivros,
   validaExistenciaCampos,
+  validapatchLivrosLido
 };
