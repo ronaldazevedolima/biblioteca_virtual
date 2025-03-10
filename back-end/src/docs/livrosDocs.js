@@ -73,6 +73,16 @@
  *                     nota: 10
  *                     idCategoria: 1
  *                     idEditora: 1
+ *       500:
+ *         description: Erro ao buscar todos os livros.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todos os livros."
  *   post:
  *     tags:
  *       - Livros
@@ -242,6 +252,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Livro já cadastrado no banco de dados."
+ *       500:
+ *         description: Erro ao criar livro.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar livro."
  * livros/{id}:
  *   get:
  *     tags:
@@ -334,6 +354,147 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Livro não encontrado."
+ *       500:
+ *         description: Erro ao buscar por livro.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por livro."
+ *   patch:
+ *     tags:
+ *       - Livros
+ *     summary: Atualiza o campo lido e adiciona uma nota a um livro pelo ID
+ *     description: Atualiza os dados dos campos lido e nota de um livro existente.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do livro a ser atualizado.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nota:
+ *                 type: integer
+ *                 minimum: 1
+ *                 description: "O campo nota deve ser um numero inteiro entre 0 e 10."
+ *                 example: 1
+ *     responses:
+ *       200:
+ *         description: Livro modificado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+  *               properties:
+ *                   id:
+ *                     type: integer
+ *                     example: 1
+ *                   idColecao:
+ *                     type: integer
+ *                     example: 2
+ *                   nome:
+ *                     type: string
+ *                     example: "A Sociedade do Anel"
+ *                   idAutor:
+ *                     type: integer
+ *                     example: 1
+ *                   tenho:
+ *                     type: boolean
+ *                     example: true
+ *                   lido:
+ *                     type: boolean
+ *                     example: true
+ *                   nota:
+ *                     type: integer
+ *                     example: 10
+ *                   idCategoria:
+ *                     type: integer
+ *                     example: 1
+ *                   idEditora:
+ *                     type: integer
+ *                     example: 1
+ *       204:
+ *         description: Nenhuma modificação a ser feita.
+ *       400:
+ *         description: Problema com a requisição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "O campo nome é obrigatório."
+ *             examples:
+ *               CampoVazio:
+ *                 summary: Um campo está vazio.
+ *                 value:
+ *                   message: "O 'campo' não pode estar vazio."
+ *               CampoNumericoObrigatorio:
+ *                 summary: Um campo deve ser um número.
+ *                 value:
+ *                   message: "O 'campo' deve ser um numero"
+ *               CampoNumericoTamanhoMinimo:
+ *                 summary: Um campo deve ser maior ou igual a X.
+ *                 value:
+ *                   message: "O 'campo' deve ser maior ou igual a 1"
+ *               CampoNumericoTamanhoMaximo:
+ *                 summary: Um campo deve ser menor ou igual a X.
+ *                 value:
+ *                   message: "O 'campo' deve ser menor ou igual a 10"
+ *               IdNumeroInteiro:
+ *                 summary: O id precisa ser um número inteiro.
+ *                 value:
+ *                   message: "O id precisa ser um número inteiro"
+ *       401:
+ *         description: Problema de permissão de acesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Token de autenticação não fornecido."
+ *             examples:
+ *               TokenObrigatorio:
+ *                 summary: Requisição feita sem token.
+ *                 value:
+ *                   message: "Token de autenticação não fornecido."
+ *               TokenInvalido:
+ *                 summary: Requisição feita com token inválido.
+ *                 value:
+ *                   message: "Token fornecido é inválido."
+ *       404:
+ *         description: Livro não encontrado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Livro não encontrado."
+ *       500:
+ *         description: Erro ao atualizar livro.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar livro."
  *   put:
  *     tags:
  *       - Livros
@@ -495,7 +656,17 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Livro não encontrada."
+ *                   example: "Livro não encontrado."
+ *       500:
+ *         description: Erro ao atualizar livro.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar livro."
  *   delete:
  *     tags:
  *       - Livros
@@ -564,7 +735,7 @@
  *                   type: string
  *                   example: "Livro não encontrado."
  *       500:
- *         description: Livro não deletado.
+ *         description: Erro ao deletar livro.
  *         content:
  *           application/json:
  *             schema:
@@ -572,7 +743,7 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Livro não deletado."
+ *                   example: "Erro ao deletar livro."
  * /livros/nao-lidos:
  *   get:
  *     tags:
@@ -622,6 +793,16 @@
  *                     tenho: true
  *                     autor: "Bernard Cornwell"
  *                     colecao: "As Crônicas Saxônicas"
+ *       500:
+ *         description: Erro ao buscar por livros.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por livros."
  * /livros/nao-tenho:
  *   get:
  *     tags:
@@ -671,6 +852,16 @@
  *                     tenho: false
  *                     autor: "Bernard Cornwell"
  *                     colecao: "As Crônicas Saxônicas"
+ *       500:
+ *         description: Erro ao buscar por livros.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por livros."
  * /livros/search:
  *   get:
  *     tags:
@@ -733,4 +924,14 @@
  *                   categoria:
  *                     type: string
  *                     example: "Literatura fantástica"
+ *       500:
+ *         description: Erro ao buscar por livros.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por livros."
  */
