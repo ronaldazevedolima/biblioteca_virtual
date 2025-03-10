@@ -35,27 +35,7 @@ chai.use(sinonChai);
 const { expect } = chai;
 
 
-
-const array = [
-  { nome: '' },
-  { autor: '' },
-  { editora: '' },
-  { colecao: '' },
-  { nome: '', autor: '' },
-  { nome: '', editora: '' },
-  { nome: '', colecao: '' },
-  { autor: '', editora: '' },
-  { autor: '', colecao: '' },
-  { editora: '', colecao: '' },
-  { nome: '', autor: '', editora: '' },
-  { nome: '', autor: '', colecao: '' },
-  { nome: '', editora: '', colecao: '' },
-  { autor: '', editora: '', colecao: '' },
-  { nome: '', autor: '', editora: '', colecao: '' }
-];
-
-
-describe.only('Testa Service de livros', () => {
+describe('Testa Service de livros', () => {
   afterEach(() => sinon.restore());
 
   describe('Testa função de buscar todos os livros', () => {
