@@ -33,7 +33,6 @@ const validaAdmin = (req, res, next) => {
 const validaAcesso = (req, res, next) => {
   const { id: idUser, classificacao } = req.user;
   const { id: idRota } = req.params;
-
   if (idUser !== +idRota && classificacao !== 'admin') {
     return res.status(403).json({ mensagem: 'Acesso negado.' });
   }

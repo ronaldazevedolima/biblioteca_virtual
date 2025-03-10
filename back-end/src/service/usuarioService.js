@@ -1,138 +1,157 @@
 const db = require('../models');
-const { gerarToken } = require('../utilidades/tokenUtils');
-const { hashSenha, compararSenha } = require('../utilidades/utilidades');
+const gerarToken = require('../utilidades/tokenUtils');
+const utils = require('../utilidades/utilidades');
 
 const tdsUsrs = async () => {
-  const listaUsuarios = await db.Usuarios.findAll({
-    attributes: { exclude: [ 'senha'] }
-  });
-
-  return { status: 200, resposta: listaUsuarios };
+  try {
+    const listaUsuarios = await db.Usuarios.findAll({
+      attributes: { exclude: [ 'senha'] }
+    });
+    return { status: 200, resposta: listaUsuarios.map(e => e.dataValues) };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Erro ao buscar todos os usuários.' } };
+  }
 };
 
 const usrId = async (id) => {
-  const usuario = await db.Usuarios.findByPk(id, {
-    attributes: { exclude: [ 'senha'] }
-  });
-  if (!usuario) {
-    return { status: 404, resposta: {mensagem: 'Usuário não encontrado.'} };
-
+  try {
+    const usuario = await db.Usuarios.findByPk(id, {
+      attributes: { exclude: [ 'senha'] }
+    });
+    if (!usuario) {
+      return { status: 404, resposta: {mensagem: 'Usuário não encontrado.'} };
+  
+    }
+    return { status: 200, resposta: usuario.dataValues };    
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Erro ao buscar por usuário.' } };
   }
-  return { status: 200, resposta: usuario };
 };
 
 const atlzClassficacao = async (id, classificacao) => {
-  const usuario = await db.Usuarios.findByPk(id);
-  if (!usuario) {
-    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
-  }
-  const [atualizado] = await db.Usuarios.update({ classificacao: classificacao }, {
-    where: {
-      id
+  try {
+    
+    const usuario = await db.Usuarios.findByPk(id);
+    if (!usuario) {
+      return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
     }
-  });
-  if (atualizado) {
-    return { status: 200, resposta: { mensagem: `Classificação atualizada para "${classificacao}" com sucesso.` } };
+    const [atualizado] = await db.Usuarios.update({ classificacao }, {
+      where: {
+        id
+      }
+    });
+    if (atualizado) {
+      return { status: 200, resposta: { mensagem: `Classificação atualizada para "${classificacao}" com sucesso.` } };
+    }
+  
+    return { status: 208, resposta: { mensagem: `Usuário já passui a classificação "${classificacao}".` } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Erro ao atualizar usuário.' } };
   }
-
-  return { status: 208, resposta: { mensagem: `Usuário já passui a classificação "${classificacao}".` } };
 };
 
 const atlizUsuario = async (id, modificacoes) => {
-  const usrParaAtualizar = await db.Usuarios.findByPk(id, {
-    attributes: { exclude: [ 'senha'] }
-  });
-
-  if (!usrParaAtualizar) {
-    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
-  }
-
-  delete modificacoes.classificacao;
-
-  const { senha } = modificacoes;
+  try {
+    
+    const usrParaAtualizar = await db.Usuarios.findByPk(id, {
+      attributes: { exclude: [ 'senha'] }
+    });
   
-  let newUserInf = modificacoes;
-  
-  if (senha) { 
-    const cripto = await hashSenha(senha);
-    newUserInf = {...newUserInf, senha: cripto };
-  }
-
-  const [atualizado] = await db.Usuarios.update({ ...newUserInf }, {
-    where: {
-      id
+    if (!usrParaAtualizar) {
+      return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
     }
-  });
-  if (atualizado) {
-    const resultado = {...usrParaAtualizar.get(), ...modificacoes};
-    delete resultado.senha;
-    return { status: 200, resposta: resultado };
+  
+    delete modificacoes.classificacao;
+    const { senha } = modificacoes;
+    
+    let newUserInf = modificacoes;
+    
+    if (senha) {
+      const cripto = await utils.hashSenha(senha);
+      newUserInf = {...newUserInf, senha: cripto };
+    }
+    const [atualizado] = await db.Usuarios.update({ ...newUserInf }, {
+      where: {
+        id
+      }
+    });
+    if (atualizado) {
+      const resultado = {...usrParaAtualizar.get(), ...modificacoes};
+      delete resultado.senha;
+      return { status: 200, resposta: resultado };
+    }
+  
+    return { status: 204 };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Erro ao atualizar usuário.' } };
   }
-
-  return { status: 204 };
 };
 
 const criaUsr = async (obj) => {
-  const { email, senha } = obj;
-
-  const usr = await db.Usuarios.findAll({ where: { email } });
-
-  if (usr.length !== 0) {
-    return { status: 409, resposta: { mensagem: 'Usuario já existente no banco de dados.'}};
+  try {
+    
+    const { email, senha } = obj;
+  
+    const usr = await db.Usuarios.findAll({ where: { email } });
+  
+    if (usr.length !== 0) {
+      return { status: 409, resposta: { mensagem: 'Usuário já cadastrado no banco de dados.'}};
+    }
+  
+    const cripto = await utils.hashSenha(senha);
+  
+    const infoUsr = {...obj, senha: cripto, classificacao: 'cliente'};
+  
+    const infoUsrCriado = await db.Usuarios.create(infoUsr);
+    delete infoUsrCriado.dataValues.senha;
+  
+    const token = gerarToken.gerarToken(infoUsrCriado.dataValues);
+  
+    return { status: 201, resposta: { token } };
+  } catch (error) {
+    return { status: 500, resposta: { mensagem: 'Erro ao criar usuário.' } };
   }
-
-  const cripto = await hashSenha(senha);
-
-  const infoUsr = {...obj, senha: cripto, classificacao: 'cliente'};
-
-  const infoUsrCriado = await db.Usuarios.create(infoUsr);
-
-  delete infoUsrCriado.dataValues.senha;
-
-  const token = gerarToken(infoUsrCriado.dataValues);
-
-  return { status: 201, resposta: { token } };
 };
 
 const delUsr = async (id) => {
-  const usuario = await db.Usuarios.findByPk(id);
-  if (!usuario) {
-    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
-  }
   try {
+    const usuario = await db.Usuarios.findByPk(id);
+    if (!usuario) {
+      return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
+    }
     await db.Usuarios.destroy({ where: { id } });
     return { status: 200, resposta: { mensagem: 'Usuário deletado com sucesso.' } };
     
   } catch (error) {
-    return { status: 500, resposta: { mensagem: 'Usuário não deletado.' } };
+    return { status: 500, resposta: { mensagem: 'Erro ao deletar usuário.' } };
   }
 };
 
 const efetuarLogin = async (email, senha) => {
-  const usuario = await db.Usuarios.findOne({
-    where: {
-      email
-    }    
-  });
-
-  if (!usuario) {
-    return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
-  }
-
-  const senhaValida = await compararSenha(senha, usuario.dataValues.senha);
   
-  if (!senhaValida) {
-    return { status: 401, resposta: { mensagem: 'Senha inválida.' } };
-    
-  }
-  
-  delete usuario.dataValues.senha;
-
   try {
-    const token = gerarToken(usuario.dataValues);
+    const usuario = await db.Usuarios.findOne({
+      where: {
+        email
+      }    
+    });
+    if (!usuario) {
+      return { status: 404, resposta: { mensagem: 'Usuário não encontrado.' } };
+    }
+  
+    const senhaValida = await utils.compararSenha(senha, usuario.dataValues.senha);
+    if (!senhaValida) {
+      return { status: 401, resposta: { mensagem: 'Senha inválida.' } };
+      
+    }
+    
+    delete usuario.dataValues.senha;
+    
+    const token = gerarToken.gerarToken(usuario.dataValues);
+    
     return { status: 200, resposta: { token } };
   } catch (error) {
-    return { status: 500, resposta: { mensagem: 'Não foi possível fazer o login.' } };
+    return { status: 500, resposta: { mensagem: 'Erro ao efetuar login.' } };
   }
 
 };
