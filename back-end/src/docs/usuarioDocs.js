@@ -59,6 +59,16 @@
  *                 summary: Requisição feita com token inválido.
  *                 value:
  *                   message: "Token fornecido é inválido."
+ *       500:
+ *         description: Erro ao buscar todos os usuários.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar todos os usuários."
  *   post:
  *     tags:
  *       - Usuarios
@@ -145,6 +155,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuario já existente no banco de dados."
+ *       500:
+ *         description: Erro ao criar usuário.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao criar usuário."
  * /usuarios/{id}:
  *   get:
  *     tags:
@@ -223,6 +243,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuario não encontrado."
+ *       500:
+ *         description: Erro ao buscar por usuário.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao buscar por usuário."
  *   put:
  *     tags:
  *       - Usuarios
@@ -360,6 +390,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuário não encontrado."
+ *       500:
+ *         description: Erro ao atualizar usuário.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar usuário."
  *   patch:
  *     tags:
  *       - Usuarios
@@ -457,6 +497,16 @@
  *                 mensagem:
  *                   type: string
  *                   example: "Usuário não encontrado."
+ *       500:
+ *         description: Erro ao atualizar usuário.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao atualizar usuário."
  *   delete:
  *     tags:
  *       - Usuarios
@@ -525,7 +575,7 @@
  *                   type: string
  *                   example: "Usuário não encontrado."
  *       500:
- *         description: Usuário não deletado.
+ *         description: Erro ao deletar usuário.
  *         content:
  *           application/json:
  *             schema:
@@ -533,22 +583,22 @@
  *               properties:
  *                 mensagem:
  *                   type: string
- *                   example: "Usuário não deletado."
+ *                   example: "Erro ao deletar usuário."
  * /usuarios/login:
  *   post:
  *     tags:
  *       - Usuarios
  *     summary: Efetua login do usuário.
  *     description: Autentica o usuário com email e senha, retornando um token JWT em caso de sucesso.
- *  requestBody:
- *      required: true
+ *     requestBody:
+ *       required: true
  *       content:
  *        application/json:
  *          schema:
- *           type: object
+ *            type: object
  *            required:
- *              - email
- *              - senha
+ *               - email
+ *               - senha
  *            properties:
  *              email:
  *                type: string
@@ -557,17 +607,17 @@
  *              senha:
  *                type: string
  *                example: "123456"
- *    responses:
- *      200:
- *        description: Login realizado com sucesso. Retorna um token JWT.
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *               token:
- *                  type: string
- *                  example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *     responses:
+ *       200:
+ *         description: Login realizado com sucesso. Retorna um token JWT.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                token:
+ *                   type: string
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  *       400:
  *         description: Problema com a requisição.
  *         content:
@@ -599,34 +649,34 @@
  *                 summary: Um campo deve ser uma string alfanumérica contendo de 6 a 10 caracteres.
  *                 value:
  *                   message: "O campo {{#key}} deve ser uma string alfanumérica contendo de 6 a 10 caracteres."
- *      401:
- *        description: Senha inválida.
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                mensagem:
- *                  type: string
- *                  example: "Senha inválida."
- *      404:
- *        description: Usuário não encontrado.
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                mensagem:
- *                  type: string
- *                  example: "Usuário não encontrado."
- *      500:
- *        description: Erro interno no servidor.
- *        content:
- *          application/json:
- *            schema:
- *             type: object
- *              properties:
- *                mensagem:
- *                  type: string
- *                  example: "Não foi possível fazer o login."
+ *       401:
+ *         description: Senha inválida.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Senha inválida."
+ *       404:
+ *         description: Usuário não encontrado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Usuário não encontrado."
+ *       500:
+ *         description: Erro ao efetuar login.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensagem:
+ *                   type: string
+ *                   example: "Erro ao efetuar login."
  */
