@@ -1,8 +1,8 @@
-const { esquemaUsuario, esquemaClassificacao } = require('../utilidades/esquemasValidacao');
+const esquema = require('../utilidades/esquemasValidacao');
 
 const validaUsrInfo = (req, res, next) => {
   const { body } = req;
-  const validaEntrada = esquemaUsuario.validate(body);
+  const validaEntrada = esquema.esquemaUsuario.validate(body);
   if(validaEntrada.error) {
     return res.status(400).json({ mensagem: validaEntrada.error.message });
   }
@@ -11,7 +11,7 @@ const validaUsrInfo = (req, res, next) => {
 
 const validaClassificacao = (req, res, next) => {
   const { body } = req;
-  const validaEntrada = esquemaClassificacao.validate(body);
+  const validaEntrada = esquema.esquemaClassificacao.validate(body);
   if(validaEntrada.error) {
     return res.status(400).json({ mensagem: validaEntrada.error.message });
   }

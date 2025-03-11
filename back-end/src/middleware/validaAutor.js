@@ -1,4 +1,4 @@
-const { esquemaAutor } = require('../utilidades/esquemasValidacao');
+const {esquemaAutor} = require('../utilidades/esquemasValidacao');
 
 const validaAutor = (req, res, next) => {
   const { body } = req;

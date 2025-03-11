@@ -102,7 +102,6 @@ const atlizLido = async (id, nota) => {
 const procuraLivrosNaoLidosOuNaoTenho = async (coluna) => {
   try {
     const valorFlagIncludes = util.criaArrayFlagIncludes(db, arrCamposPossiveis);
-    // console.log('valorflagincludes', valorFlagIncludes) 
     const listaLivros = await db.Livros.findAll({ where: { [coluna]: false }, attributes: valoFlagAttributes, include: valorFlagIncludes });
     const livrosFormatados = util.formataLivrosRotasTenhoLido(listaLivros);
     return { status: 200, resposta: livrosFormatados };

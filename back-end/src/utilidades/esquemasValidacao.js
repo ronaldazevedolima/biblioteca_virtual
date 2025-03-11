@@ -48,7 +48,7 @@ const esquemaClassificacao = joi.object({
 }).options({
   messages: {
     'any.required': 'O campo {{#key}} é obrigatório.',
-    'string.empty': 'O campo {{#key}}não pode ser vazio',
+    'string.empty': 'O campo {{#key}} não pode ser vazio.',
     'string.base': 'O campo {{#key}} deve ser uma string.',
     'string.pattern.base': 'O campo {{#key}} deve ser admin ou cliente.'
   }
@@ -140,7 +140,7 @@ const esquemaPutLivros = joi.object({
     'string.min': 'O campo {{#key}} deve conter no minimo {{#limit}} caracteres.',
     'string.empty': 'O campo {{#key}} não pode ser vazio.',
     'number.min': 'O campo {{#key}} deve ser igual ou maior que {{#limit}}.',
-    'number.max': 'O campo {{#key}} deve ser igual o menor que {{#limit}}.',
+    'number.max': 'O campo {{#key}} deve ser igual ou menor que {{#limit}}.',
     'number.base': 'O campo {{#key}} deve ser um numero.',
     'string.base': 'O campo {{#key}} deve ser uma string.'
   }
@@ -152,7 +152,7 @@ const esquemaPatchLivrosLido = joi.object({
   messages:{
     'any.required': 'O campo {{#key}} é obrigatório.',
     'number.min': 'O campo {{#key}} deve ser igual ou maior que {{#limit}}.',
-    'number.max': 'O campo {{#key}} deve ser igual o menor que {{#limit}}.',
+    'number.max': 'O campo {{#key}} deve ser igual ou menor que {{#limit}}.',
     'number.base': 'O campo {{#key}} deve ser um numero.',
   }
 });
